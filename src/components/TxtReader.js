@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class TxtReader extends Component {
   componentDidMount() {
-    fetch("./" + this.props.dataset.filename)
+    fetch("../text/" + this.props.dataset.filename)
       .then(r => r.text())
       .then(text => {
         var lines = text.split("\n");
