@@ -59,9 +59,9 @@ Diglett-A
 Dugtrio
 Dugtrio-A
 Meowth
-Meowth
+Meowth-A
 Persian
-Persian
+Persian-A
 Psyduck
 Golduck
 Mankey
@@ -100,9 +100,9 @@ Dodrio
 Seel
 Dewgong
 Grimer
-Grimer
+Grimer-A
 Muk
-Muk
+Muk-A
 Shellder
 Cloyster
 Gastly
@@ -120,7 +120,7 @@ Exeggutor
 Exeggutor-A
 Cubone
 Marowak
-Marowak
+Marowak-A
 Hitmonlee
 Hitmonchan
 Lickitung
@@ -367,9 +367,9 @@ Armaldo
 Feebas
 Milotic
 Castform
-Castform
-Castform
-Castform
+Castform-Water
+Castform-Earth
+Castform-Fire
 Kecleon
 Shuppet
 Banette
@@ -434,11 +434,9 @@ Rampardos
 Shieldon
 Bastiodon
 Burmy
-Burmy
-Burmy
 Wormadam
-Wormadam
-Wormadam
+Wormadam-Sandy Cloak
+Wormadam-Trash Cloak
 Mothim
 Combee
 Vespiquen
@@ -447,10 +445,7 @@ Buizel
 Floatzel
 Cherubi
 Cherrim
-Cherrim
 Shellos
-Shellos
-Gastrodon
 Gastrodon
 Ambipom
 Drifloon
@@ -507,12 +502,8 @@ Gallade
 Probopass
 Dusknoir
 Froslass
-Rotom
-Rotom
-Rotom
-Rotom
-Rotom
-Rotom
+Rotom-Normal
+Rotom-Other
 Uxie
 Mesprit
 Azelf
@@ -526,8 +517,8 @@ Cresselia
 Phione
 Manaphy
 Darkrai
-Shaymin
-Shaymin
+Shaymin-Land
+Shaymin-Sky
 Arceus
 Meltan
 Melmetal`.split("\n");

@@ -59,9 +59,9 @@ Diglett-A,108,81,67
 Dugtrio,167,134,111
 Dugtrio-A,201,142,111
 Meowth,92,78,120
-Meowth,99,78,120
+Meowth-A,99,78,120
 Persian,150,136,163
-Persian,158,136,163
+Persian-A,158,136,163
 Psyduck,122,95,137
 Golduck,191,162,190
 Mankey,148,82,120
@@ -100,9 +100,9 @@ Dodrio,218,140,155
 Seel,85,121,163
 Dewgong,139,177,207
 Grimer,135,90,190
-Grimer,135,90,190
+Grimer-A,135,90,190
 Muk,190,172,233
-Muk,190,172,233
+Muk-A,190,172,233
 Shellder,116,134,102
 Cloyster,186,256,137
 Gastly,186,67,102
@@ -120,7 +120,7 @@ Exeggutor,233,149,216
 Exeggutor-A,230,153,216
 Cubone,90,144,137
 Marowak,144,186,155
-Marowak,144,186,155
+Marowak-A,144,186,155
 Hitmonlee,224,181,137
 Hitmonchan,193,197,137
 Lickitung,108,137,207
@@ -367,9 +367,9 @@ Armaldo,222,174,181
 Feebas,29,85,85
 Milotic,192,219,216
 Castform,139,139,172
-Castform,139,139,172
-Castform,139,139,172
-Castform,139,139,172
+Castform-Water,139,139,172
+Castform-Earth,139,139,172
+Castform-Fire,139,139,172
 Kecleon,161,189,155
 Shuppet,138,65,127
 Banette,218,126,162
@@ -434,11 +434,9 @@ Rampardos,295,109,219
 Shieldon,76,195,102
 Bastiodon,94,286,155
 Burmy,53,83,120
-Burmy,53,83,120
-Burmy,53,83,120
 Wormadam,141,180,155
-Wormadam,141,180,155
-Wormadam,127,175,155
+Wormadam-Sandy Cloak,141,180,155
+Wormadam-Trash Cloak,127,175,155
 Mothim,185,98,172
 Combee,59,83,102
 Vespiquen,149,190,172
@@ -447,10 +445,7 @@ Buizel,132,67,146
 Floatzel,221,114,198
 Cherubi,108,92,128
 Cherrim,170,153,172
-Cherrim,170,153,172
 Shellos,103,105,183
-Shellos,103,105,183
-Gastrodon,169,143,244
 Gastrodon,169,143,244
 Ambipom,205,143,181
 Drifloon,117,80,207
@@ -507,12 +502,8 @@ Gallade,237,195,169
 Probopass,135,275,155
 Dusknoir,180,254,128
 Froslass,171,150,172
-Rotom,185,159,137
-Rotom,204,219,137
-Rotom,204,219,137
-Rotom,204,219,137
-Rotom,204,219,137
-Rotom,204,219,137
+Rotom-Normal,185,159,137
+Rotom-Other,204,219,137
 Uxie,156,270,181
 Mesprit,212,212,190
 Azelf,270,151,181
@@ -526,8 +517,8 @@ Cresselia,152,258,260
 Phione,162,162,190
 Manaphy,210,210,225
 Darkrai,285,198,172
-Shaymin,210,210,225
-Shaymin,261,166,225
+Shaymin-Land,210,210,225
+Shaymin-Sky,261,166,225
 Arceus,238,238,237
 Meltan,118,99,130
 Melmetal,226,190,264`.split("\n");
