@@ -1,13 +1,14 @@
 {
-  "main.css": "/ivtable/static/css/main.3e78d838.chunk.css",
-  "main.js": "/ivtable/static/js/main.8d55593b.chunk.js",
-  "main.js.map": "/ivtable/static/js/main.8d55593b.chunk.js.map",
+  "main.css": "/ivtable/static/css/main.b3bfc588.chunk.css",
+  "main.js": "/ivtable/static/js/main.f5257d73.chunk.js",
+  "main.js.map": "/ivtable/static/js/main.f5257d73.chunk.js.map",
   "runtime~main.js": "/ivtable/static/js/runtime~main.a539f581.js",
   "runtime~main.js.map": "/ivtable/static/js/runtime~main.a539f581.js.map",
-  "static/js/2.dd58458f.chunk.js": "/ivtable/static/js/2.dd58458f.chunk.js",
-  "static/js/2.dd58458f.chunk.js.map": "/ivtable/static/js/2.dd58458f.chunk.js.map",
+  "static/js/2.a678a401.chunk.js": "/ivtable/static/js/2.a678a401.chunk.js",
+  "static/js/2.a678a401.chunk.js.map": "/ivtable/static/js/2.a678a401.chunk.js.map",
   "index.html": "/ivtable/index.html",
-  "precache-manifest.4645139fb002e12395bd70926a3517a4.js": "/ivtable/precache-manifest.4645139fb002e12395bd70926a3517a4.js",
+  "precache-manifest.c7466e574d321884a3db0e32a3336dd4.js": "/ivtable/precache-manifest.c7466e574d321884a3db0e32a3336dd4.js",
   "service-worker.js": "/ivtable/service-worker.js",
-  "static/css/main.3e78d838.chunk.css.map": "/ivtable/static/css/main.3e78d838.chunk.css.map"
+  "static/css/main.b3bfc588.chunk.css.map": "/ivtable/static/css/main.b3bfc588.chunk.css.map",
+  "static/media/ivtable_banner.png": "/ivtable/static/media/ivtable_banner.faf61ae5.png"
 }
