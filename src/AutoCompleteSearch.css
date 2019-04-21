@@ -4,7 +4,8 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background-color: rgb(196, 226, 255);
+  /*background-color: rgb(196, 226, 255);*/
+  background-image: url("./background.png");
 }
 
 #root {
