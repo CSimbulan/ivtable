@@ -26,19 +26,33 @@ class TableGenerator extends Component {
 
   sortFunction = (a, b) => {
     const sortDict = {
-      cp20: 0,
-      cp25: 2,
+      cp: 0,
       iv: 4
     };
     var index = sortDict[this.props.options.sort];
+    var index2 = 0; /*Secondary sort index.*/
+    var index3 = 0; /*Tertiary sort index.*/
+    if (this.props.options.sort === "iv") {
+      index2 = 8; /*If primary sort is by IV, secondary sort is by CP@40.*/
+      index3 = 9; /*If primary sort is by IV, tertiary sort is by HP@40.*/
+    } else {
+      index2 = 8; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
+      index3 = 4; /*If primary sort is by IV, secondary sort is by IV.*/
+    }
     if (this.props.options.toggle.lvl15) {
       index += 2;
+      index2 += 2;
+      index3 += 2;
     }
     if (parseFloat(a[index]) === parseFloat(b[index])) {
-      if (parseFloat(a[index + 4]) === parseFloat(b[index + 4])) {
-        return 0;
+      if (parseFloat(a[index2]) === parseFloat(b[index2])) {
+        if (parseFloat(a[index3]) === parseFloat(b[index3])) {
+          return 0;
+        } else {
+          return parseFloat(a[index3]) > parseFloat(b[index3]) ? -1 : 1;
+        }
       } else {
-        return parseFloat(a[index + 4]) > parseFloat(b[index + 4]) ? -1 : 1;
+        return parseFloat(a[index2]) > parseFloat(b[index2]) ? -1 : 1;
       }
     } else {
       return parseFloat(a[index]) > parseFloat(b[index]) ? -1 : 1;
