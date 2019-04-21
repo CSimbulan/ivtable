@@ -1,5 +1,5 @@
 {
-  "main.css": "/ivtable/static/css/main.c472bac6.chunk.css",
+  "main.css": "/ivtable/static/css/main.3e78d838.chunk.css",
   "main.js": "/ivtable/static/js/main.8d55593b.chunk.js",
   "main.js.map": "/ivtable/static/js/main.8d55593b.chunk.js.map",
   "runtime~main.js": "/ivtable/static/js/runtime~main.a539f581.js",
@@ -7,7 +7,7 @@
   "static/js/2.dd58458f.chunk.js": "/ivtable/static/js/2.dd58458f.chunk.js",
   "static/js/2.dd58458f.chunk.js.map": "/ivtable/static/js/2.dd58458f.chunk.js.map",
   "index.html": "/ivtable/index.html",
-  "precache-manifest.a785e454595056877d74fa306ad7c2e1.js": "/ivtable/precache-manifest.a785e454595056877d74fa306ad7c2e1.js",
+  "precache-manifest.4645139fb002e12395bd70926a3517a4.js": "/ivtable/precache-manifest.4645139fb002e12395bd70926a3517a4.js",
   "service-worker.js": "/ivtable/service-worker.js",
-  "static/css/main.c472bac6.chunk.css.map": "/ivtable/static/css/main.c472bac6.chunk.css.map"
+  "static/css/main.3e78d838.chunk.css.map": "/ivtable/static/css/main.3e78d838.chunk.css.map"
 }
