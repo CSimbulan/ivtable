@@ -13,7 +13,7 @@ class Options extends Component {
   };
 
   highlightToggle = opt => {
-    if (opt === true) {
+    if (opt) {
       return "buttonSort highlighted";
     } else {
       return "buttonSort notHighlighted";
@@ -27,21 +27,21 @@ class Options extends Component {
           <div className="OptionsHeader">Sort By</div>
           <button
             className={this.highlightSort("cp20")}
-            onClick={() => this.props.onClick("cp20")}
+            onClick={() => this.props.changeSort("cp20")}
           >
             CP @ 20
           </button>
           <br />
           <button
             className={this.highlightSort("cp25")}
-            onClick={() => this.props.onClick("cp25")}
+            onClick={() => this.props.changeSort("cp25")}
           >
             CP @ 25
           </button>
           <br />
           <button
             className={this.highlightSort("iv")}
-            onClick={() => this.props.onClick("iv")}
+            onClick={() => this.props.changeSort("iv")}
           >
             IV
           </button>

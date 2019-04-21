@@ -182,7 +182,7 @@ class App extends Component {
         <br />
         <Options
           options={this.state.options}
-          onClick={value => this.changeSort(value)}
+          changeSort={value => this.changeSort(value)}
           toggleNundo={this.toggleNundo}
           toggleLvl15={this.toggleLvl15}
           toggleUnder90={this.toggleUnder90}
