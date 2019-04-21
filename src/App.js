@@ -23,8 +23,8 @@ class App extends Component {
     },
     options: {
       id: "options",
-      sort: "cp20",
-      toggle: { nundo: false, lvl15: false, under90: false }
+      sort: "cp",
+      toggle: { nundo: true, lvl15: false, under90: false }
     }
   };
 

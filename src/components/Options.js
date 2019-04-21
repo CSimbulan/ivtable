@@ -26,17 +26,10 @@ class Options extends Component {
         <div className="Box">
           <div className="OptionsHeader">Sort By</div>
           <button
-            className={this.highlightSort("cp20")}
-            onClick={() => this.props.changeSort("cp20")}
+            className={this.highlightSort("cp")}
+            onClick={() => this.props.changeSort("cp")}
           >
-            CP @ 20
-          </button>
-          <br />
-          <button
-            className={this.highlightSort("cp25")}
-            onClick={() => this.props.changeSort("cp25")}
-          >
-            CP @ 25
+            CP
           </button>
           <br />
           <button
