@@ -1,0 +1,170 @@
+.AutoCompleteSearch {
+  width: 75%;
+  margin: auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73);
+  position: relative;
+}
+
+.AutoCompleteSearch input {
+  width: 100%;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73);
+  padding: 10px 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.AutoCompleteSearch ul {
+  position: absolute;
+  z-index: 1;
+  list-style-type: none;
+  text-align: left;
+  margin: auto;
+  padding: 0;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  width: 100%;
+  background-color: white;
+  left: 50%;
+  transform: translate(-50.0005%, 0);
+}
+
+.AutoCompleteSearch ul::before {
+  content: "";
+}
+
+.AutoCompleteSearch li {
+  padding: 10px 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.AutoCompleteSearch li:hover {
+  text-decoration: underline;
+  color: white;
+  background-color: rgba(38, 38, 114, 0.92);
+}
+
+.test {
+  position: relative;
+}
+
+.Options {
+  border: 1px solid black;
+  width: 75%;
+  margin: auto;
+  background-color: gray;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+.Box {
+  border: 1px solid white;
+  background-color: rgb(196, 226, 255);
+  width: 40%;
+  box-sizing: border-box;
+  padding: 0.5%;
+}
+
+.OptionsHeader {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.buttonSort {
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 60%;
+  font-size: 1.75vw;
+  margin: 4px 2px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonSort:hover {
+  background-color: rgb(0, 250, 21);
+  border: 2px solid white;
+}
+
+.buttonSort:active {
+  background-color: rgb(171, 241, 177);
+  box-shadow: none;
+  transform: translateY(6px);
+}
+
+.highlighted {
+  background-color: rgb(0, 250, 21);
+  border: 2px solid white;
+}
+
+.notHighlighted {
+  background-color: #4caf50;
+  border: 2px solid gray;
+}
+
+hr {
+  width: 75%;
+}
+
+.Table {
+  width: 75%;
+  margin: auto;
+}
+
+.Table table {
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 75%;
+  table-layout: fixed;
+  font-size: 1vw;
+}
+
+.Table table th,
+td {
+  padding: 1%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+.hundo {
+  background-color: #4bd5ff;
+}
+
+.ninetyEight {
+  background-color: #9dff65;
+}
+
+.ninetySix {
+  background-color: #f7fa63;
+}
+
+.ninetyThree {
+  background-color: rgb(255, 194, 80);
+}
+
+.ninetyOne {
+  background-color: rgb(236, 107, 107);
+}
+
+.nundo {
+  background-color: rgb(201, 201, 201);
+}
