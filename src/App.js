@@ -190,6 +190,7 @@ class App extends Component {
         <br />
         <hr />
         <br />
+        <h1>{this.state.search.selected}</h1>
         <TableGenerator
           options={this.state.options}
           stats={this.state.search.statsArray}
