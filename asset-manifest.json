@@ -1,5 +1,5 @@
 {
-  "main.css": "/ivtable/static/css/main.14be3add.chunk.css",
+  "main.css": "/ivtable/static/css/main.6f387998.chunk.css",
   "main.js": "/ivtable/static/js/main.b1d5a76f.chunk.js",
   "main.js.map": "/ivtable/static/js/main.b1d5a76f.chunk.js.map",
   "runtime~main.js": "/ivtable/static/js/runtime~main.a539f581.js",
@@ -7,7 +7,7 @@
   "static/js/2.dd58458f.chunk.js": "/ivtable/static/js/2.dd58458f.chunk.js",
   "static/js/2.dd58458f.chunk.js.map": "/ivtable/static/js/2.dd58458f.chunk.js.map",
   "index.html": "/ivtable/index.html",
-  "precache-manifest.0d1de195b20b400dad3bc6512cfe908d.js": "/ivtable/precache-manifest.0d1de195b20b400dad3bc6512cfe908d.js",
+  "precache-manifest.efc9e5c0dc0c5b2d8cc98c92f013d9c2.js": "/ivtable/precache-manifest.efc9e5c0dc0c5b2d8cc98c92f013d9c2.js",
   "service-worker.js": "/ivtable/service-worker.js",
-  "static/css/main.14be3add.chunk.css.map": "/ivtable/static/css/main.14be3add.chunk.css.map"
+  "static/css/main.6f387998.chunk.css.map": "/ivtable/static/css/main.6f387998.chunk.css.map"
 }
