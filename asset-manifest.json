@@ -1,13 +1,13 @@
 {
-  "main.css": "/ivtable/static/css/main.997cfbac.chunk.css",
-  "main.js": "/ivtable/static/js/main.12abd8b0.chunk.js",
-  "main.js.map": "/ivtable/static/js/main.12abd8b0.chunk.js.map",
+  "main.css": "/ivtable/static/css/main.5e14b862.chunk.css",
+  "main.js": "/ivtable/static/js/main.20c4cf5c.chunk.js",
+  "main.js.map": "/ivtable/static/js/main.20c4cf5c.chunk.js.map",
   "runtime~main.js": "/ivtable/static/js/runtime~main.a539f581.js",
   "runtime~main.js.map": "/ivtable/static/js/runtime~main.a539f581.js.map",
   "static/js/2.dd58458f.chunk.js": "/ivtable/static/js/2.dd58458f.chunk.js",
   "static/js/2.dd58458f.chunk.js.map": "/ivtable/static/js/2.dd58458f.chunk.js.map",
   "index.html": "/ivtable/index.html",
-  "precache-manifest.ffab22f35943ca2250f8c165f8ee0957.js": "/ivtable/precache-manifest.ffab22f35943ca2250f8c165f8ee0957.js",
+  "precache-manifest.502643d5ce10372697926ff7326c6a55.js": "/ivtable/precache-manifest.502643d5ce10372697926ff7326c6a55.js",
   "service-worker.js": "/ivtable/service-worker.js",
-  "static/css/main.997cfbac.chunk.css.map": "/ivtable/static/css/main.997cfbac.chunk.css.map"
+  "static/css/main.5e14b862.chunk.css.map": "/ivtable/static/css/main.5e14b862.chunk.css.map"
 }
