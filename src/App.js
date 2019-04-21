@@ -202,6 +202,11 @@ class App extends Component {
             options={this.state.options}
             stats={this.state.search.statsArray}
           />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     );
