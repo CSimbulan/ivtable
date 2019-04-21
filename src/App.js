@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
-import TxtReader from "./components/TxtReader";
 import Options from "./components/Options";
 import TableGenerator from "./components/TableGenerator";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import "./AutoCompleteSearch.css";
+import names from "./components/names";
+import basestats from "./components/basestats";
 
 class App extends Component {
   state = {
     data: [
-      { id: "names", filename: "names.txt", value: [] },
+      { id: "names", filename: "names.txt", value: names },
       { id: "cpm", filename: "cpmultipliers.txt", value: [] },
-      { id: "stats", filename: "basestats.txt", value: [] }
+      { id: "stats", filename: "basestats.txt", value: basestats }
     ],
     search: {
       selected: "",
@@ -25,24 +26,6 @@ class App extends Component {
       sort: "cp20",
       toggle: { nundo: false, lvl15: false, under90: false }
     }
-  };
-
-  readTxtFile = filename => {
-    fetch("../text/" + filename)
-      .then(r => r.text())
-      .then(text => {
-        var lines = text.split("\n");
-        return lines;
-      });
-  };
-
-  handleLoad = (propData, dataArray) => {
-    const data = [...this.state.data];
-    const index = data.indexOf(propData);
-    data[index] = { ...propData };
-    data[index].value = dataArray;
-    const search = this.state.search;
-    this.setState({ data, search });
   };
 
   onTextChanged = e => {
@@ -67,7 +50,6 @@ class App extends Component {
     for (var i = 0; i < data.length; i++) {
       var split = data[i].split(",");
       var x = String(state.search.selected);
-      x = x.slice(0, x.length - 1); /* The string has a space at the end.*/
       if (split[0] === x) {
         state.search.selectedStats = split;
       }
@@ -188,13 +170,6 @@ class App extends Component {
       <div className="App">
         <h1>Test</h1>
         <p>Select A Pokémon</p>
-        {this.state.data.map(dataset => (
-          <TxtReader
-            key={dataset.id}
-            dataset={dataset}
-            onLoad={this.handleLoad}
-          />
-        ))}
         <div className="AutoCompleteSearch">
           <AutoCompleteSearch
             items={this.state.data[0]}
