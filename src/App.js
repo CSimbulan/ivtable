@@ -177,7 +177,9 @@ class App extends Component {
       <div className="App">
         <div className="Container">
           <img src={banner} alt="Banner" />
-          <p>Select A Pokémon</p>
+          <div className="Header">
+            <h1>Enter a Pokémon:</h1>
+          </div>
           <div className="AutoCompleteSearch">
             <AutoCompleteSearch
               items={this.state.data[0]}

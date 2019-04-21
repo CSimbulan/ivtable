@@ -29,6 +29,11 @@ img {
   background-color: white;
 }
 
+.Header h1 {
+  font-family: "Bodoni MT";
+  padding: 1%;
+}
+
 .AutoCompleteSearch {
   width: 90%;
   margin: auto;
