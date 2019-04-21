@@ -203,13 +203,17 @@ h1 {
 
 @media only screen and (max-width: 600px) {
   .Table table {
-    font-size: 1.5vw;
+    font-size: 2.5vw;
     width: 100%;
   }
 
   .Table table th,
   td {
     padding: 0.1%;
+  }
+
+  .Table table th {
+    font-size: 1.5vw;
   }
 
   h1 {
