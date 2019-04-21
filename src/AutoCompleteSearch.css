@@ -162,9 +162,21 @@ td {
 }
 
 .ninetyOne {
-  background-color: rgb(236, 107, 107);
+  background-color: rgb(236, 125, 125);
 }
 
 .nundo {
   background-color: rgb(201, 201, 201);
+}
+
+@media only screen and (max-width: 600px) {
+  .Table table {
+    font-size: 1.5vw;
+    width: 100%;
+  }
+
+  .Table table th,
+  td {
+    padding: 0.1%;
+  }
 }
