@@ -174,33 +174,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Test</h1>
-        <p>Select A Pokémon</p>
-        <div className="AutoCompleteSearch">
-          <AutoCompleteSearch
-            items={this.state.data[0]}
-            search={this.state.search}
-            onTextChanged={this.onTextChanged}
-            renderSuggestions={this.renderSuggestions}
+        <div className="Container">
+          <h1>Test</h1>
+          <p>Select A Pokémon</p>
+          <div className="AutoCompleteSearch">
+            <AutoCompleteSearch
+              items={this.state.data[0]}
+              search={this.state.search}
+              onTextChanged={this.onTextChanged}
+              renderSuggestions={this.renderSuggestions}
+            />
+            {this.renderSuggestions()}
+          </div>
+          <br />
+          <Options
+            options={this.state.options}
+            changeSort={value => this.changeSort(value)}
+            toggleNundo={this.toggleNundo}
+            toggleLvl15={this.toggleLvl15}
+            toggleUnder90={this.toggleUnder90}
+            toggleColor={this.toggleColor}
           />
-          {this.renderSuggestions()}
+          <br />
+          <hr />
+          <h1>{this.state.search.selected}</h1>
+          <TableGenerator
+            options={this.state.options}
+            stats={this.state.search.statsArray}
+          />
         </div>
-        <br />
-        <Options
-          options={this.state.options}
-          changeSort={value => this.changeSort(value)}
-          toggleNundo={this.toggleNundo}
-          toggleLvl15={this.toggleLvl15}
-          toggleUnder90={this.toggleUnder90}
-          toggleColor={this.toggleColor}
-        />
-        <br />
-        <hr />
-        <h1>{this.state.search.selected}</h1>
-        <TableGenerator
-          options={this.state.options}
-          stats={this.state.search.statsArray}
-        />
       </div>
     );
   }
