@@ -24,7 +24,7 @@ class App extends Component {
     options: {
       id: "options",
       sort: "cp",
-      toggle: { nundo: true, lvl15: false, under90: false }
+      toggle: { nundo: true, lvl15: false, under90: false, color: true }
     }
   };
 
@@ -98,6 +98,12 @@ class App extends Component {
   toggleUnder90 = () => {
     const state = { ...this.state };
     state.options.toggle.under90 = !state.options.toggle.under90;
+    this.setState(() => ({ state }));
+  };
+
+  toggleColor = () => {
+    const state = { ...this.state };
+    state.options.toggle.color = !state.options.toggle.color;
     this.setState(() => ({ state }));
   };
 
@@ -186,6 +192,7 @@ class App extends Component {
           toggleNundo={this.toggleNundo}
           toggleLvl15={this.toggleLvl15}
           toggleUnder90={this.toggleUnder90}
+          toggleColor={this.toggleColor}
         />
         <br />
         <hr />

@@ -59,6 +59,12 @@ class Options extends Component {
           >
             Under 90%
           </button>
+          <button
+            className={this.highlightToggle(this.props.options.toggle.color)}
+            onClick={this.props.toggleColor}
+          >
+            Colored Rows
+          </button>
         </div>
       </div>
     );

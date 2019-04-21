@@ -3,6 +3,10 @@ import "../AutoCompleteSearch.css";
 
 class TableGenerator extends Component {
   getRowClass = row => {
+    if (!this.props.options.toggle.color) {
+      return null;
+    }
+
     const pairs = {
       97.8: "ninetyEight",
       95.6: "ninetySix",
