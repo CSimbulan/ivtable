@@ -6,6 +6,7 @@ import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import "./AutoCompleteSearch.css";
 import names from "./components/names";
 import basestats from "./components/basestats";
+import banner from "./ivtable_banner.png";
 
 class App extends Component {
   state = {
@@ -175,7 +176,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Container">
-          <h1>Test</h1>
+          <img src={banner} alt="Banner" />
           <p>Select A Pokémon</p>
           <div className="AutoCompleteSearch">
             <AutoCompleteSearch

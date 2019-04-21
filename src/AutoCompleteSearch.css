@@ -8,6 +8,10 @@ body {
   background-image: url("./background.png");
 }
 
+img {
+  width: 100%;
+}
+
 #root {
   position: absolute;
   min-height: 100%;
