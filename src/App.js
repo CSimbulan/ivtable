@@ -212,7 +212,7 @@ class App extends Component {
           <br />
           <footer>
             <hr />
-            Version 1.0.0<br />Created By: Chris Simbulan
+            Version 1.0.0
           </footer>
         </div>
       </div>

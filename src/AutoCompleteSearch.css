@@ -238,9 +238,8 @@ h1 {
 }
 
 footer {
-  position: fixed;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.6vw;
 }
