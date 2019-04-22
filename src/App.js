@@ -210,6 +210,10 @@ class App extends Component {
           <br />
           <br />
           <br />
+          <footer>
+            <hr />
+            Version 1.0.0<br />Created By: Chris Simbulan
+          </footer>
         </div>
       </div>
     );
