@@ -130,12 +130,14 @@ img {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-@media (hover: hover) {
+/* Add mouse hover effect for buttons. For some reason still works on some mobile devices.*/
+@media (pointer: fine) {
   .buttonSort:hover {
     background-color: rgb(0, 250, 21);
     border: 2px solid white;
   }
 }
+
 .buttonSort:active {
   background-color: rgb(171, 241, 177);
   box-shadow: none;
