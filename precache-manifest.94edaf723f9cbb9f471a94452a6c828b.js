@@ -8,7 +8,7 @@ self.__precacheManifest = [
     "url": "/ivtable/static/js/runtime~main.a539f581.js"
   },
   {
-    "revision": "8f0e2f63157cb4cacf1e",
+    "revision": "ef3e3658c8cbec08e276",
     "url": "/ivtable/static/js/main.f5257d73.chunk.js"
   },
   {
@@ -16,11 +16,11 @@ self.__precacheManifest = [
     "url": "/ivtable/static/js/2.a678a401.chunk.js"
   },
   {
-    "revision": "8f0e2f63157cb4cacf1e",
-    "url": "/ivtable/static/css/main.1b242d04.chunk.css"
+    "revision": "ef3e3658c8cbec08e276",
+    "url": "/ivtable/static/css/main.b69b9f20.chunk.css"
   },
   {
-    "revision": "0f3ad9fb163c9cd32590ba7c2b1647f7",
+    "revision": "6f3112d39bbc83b83d0ca63ca6bebab9",
     "url": "/ivtable/index.html"
   }
 ];
