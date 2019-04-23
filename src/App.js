@@ -86,30 +86,35 @@ class App extends Component {
     const state = { ...this.state };
     state.options.sort = value;
     this.setState(() => ({ state }));
+    this.generateStatsArray();
   };
 
   toggleNundo = () => {
     const state = { ...this.state };
     state.options.toggle.nundo = !state.options.toggle.nundo;
     this.setState(() => ({ state }));
+    this.generateStatsArray();
   };
 
   toggleLvl15 = () => {
     const state = { ...this.state };
     state.options.toggle.lvl15 = !state.options.toggle.lvl15;
     this.setState(() => ({ state }));
+    this.generateStatsArray();
   };
 
   toggleUnder90 = () => {
     const state = { ...this.state };
     state.options.toggle.under90 = !state.options.toggle.under90;
     this.setState(() => ({ state }));
+    this.generateStatsArray();
   };
 
   toggleColor = () => {
     const state = { ...this.state };
     state.options.toggle.color = !state.options.toggle.color;
     this.setState(() => ({ state }));
+    this.generateStatsArray();
   };
 
   generateStatsArray = () => {
@@ -174,9 +179,14 @@ class App extends Component {
     const state = { ...this.state };
     state.search.statsArray = statsArray;
     this.setState(() => ({ state }));
+    this.filterStats();
   };
 
   getImageUrl = () => {
+    if (this.state.search.selected === "") {
+      return "";
+    }
+
     /*Add special case for castform forms since they aren't in the official assets.*/
     if (this.state.search.selected_number === "351_f2") {
       return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
@@ -191,6 +201,74 @@ class App extends Component {
       this.state.search.selected_number +
       ".png"
     );
+  };
+
+  sortFunction = (a, b) => {
+    const sortDict = {
+      cp: 0,
+      iv: 4
+    };
+    var index = sortDict[this.state.options.sort];
+    var index2 = 0; /*Secondary sort index.*/
+    var index3 = 0; /*Tertiary sort index.*/
+    if (this.state.options.sort === "iv") {
+      index2 = 8; /*If primary sort is by IV, secondary sort is by CP@40.*/
+      index3 = 9; /*If primary sort is by IV, tertiary sort is by HP@40.*/
+    } else {
+      index2 = 8; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
+      index3 = 4; /*If primary sort is by IV, secondary sort is by IV.*/
+    }
+    if (this.state.options.toggle.lvl15) {
+      index += 2;
+      index2 += 2;
+      index3 += 2;
+    }
+    if (parseFloat(a[index]) === parseFloat(b[index])) {
+      if (parseFloat(a[index2]) === parseFloat(b[index2])) {
+        if (parseFloat(a[index3]) === parseFloat(b[index3])) {
+          return 0;
+        } else {
+          return parseFloat(a[index3]) > parseFloat(b[index3]) ? -1 : 1;
+        }
+      } else {
+        return parseFloat(a[index2]) > parseFloat(b[index2]) ? -1 : 1;
+      }
+    } else {
+      return parseFloat(a[index]) > parseFloat(b[index]) ? -1 : 1;
+    }
+  };
+
+  filterStats = () => {
+    var stats_raw = [...this.state.search.statsArray];
+    var stats_temp = [];
+    var stats = [];
+
+    if (!this.state.options.toggle.under90) {
+      for (var i = 0; i < stats_raw.length; i++) {
+        if (stats_raw[i][6] > 90) {
+          stats_temp.push(stats_raw[i]);
+        }
+        if (i === stats_raw.length - 1) {
+          if (this.state.options.toggle.nundo) {
+            stats_temp.push(stats_raw[i]);
+          }
+        }
+      }
+    } else {
+      stats_temp = stats_raw;
+    }
+
+    if (!this.state.options.toggle.lvl15) {
+      for (i = 0; i < stats_temp.length; i++) {
+        stats.push(stats_temp[i].slice(2, stats_temp[i].length));
+      }
+    } else {
+      stats = stats_temp;
+    }
+    stats.sort(this.sortFunction);
+    const state = { ...this.state };
+    state.search.statsArray = stats;
+    this.setState(() => ({ state }));
   };
 
   render() {
@@ -225,7 +303,6 @@ class App extends Component {
           <div className="tableImage">
             <img src={this.getImageUrl()} alt="" />
           </div>
-
           <TableGenerator
             options={this.state.options}
             stats={this.state.search.statsArray}

@@ -28,45 +28,7 @@ class TableGenerator extends Component {
     return pairs[row[index]];
   };
 
-  sortFunction = (a, b) => {
-    const sortDict = {
-      cp: 0,
-      iv: 4
-    };
-    var index = sortDict[this.props.options.sort];
-    var index2 = 0; /*Secondary sort index.*/
-    var index3 = 0; /*Tertiary sort index.*/
-    if (this.props.options.sort === "iv") {
-      index2 = 8; /*If primary sort is by IV, secondary sort is by CP@40.*/
-      index3 = 9; /*If primary sort is by IV, tertiary sort is by HP@40.*/
-    } else {
-      index2 = 8; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
-      index3 = 4; /*If primary sort is by IV, secondary sort is by IV.*/
-    }
-    if (this.props.options.toggle.lvl15) {
-      index += 2;
-      index2 += 2;
-      index3 += 2;
-    }
-    if (parseFloat(a[index]) === parseFloat(b[index])) {
-      if (parseFloat(a[index2]) === parseFloat(b[index2])) {
-        if (parseFloat(a[index3]) === parseFloat(b[index3])) {
-          return 0;
-        } else {
-          return parseFloat(a[index3]) > parseFloat(b[index3]) ? -1 : 1;
-        }
-      } else {
-        return parseFloat(a[index2]) > parseFloat(b[index2]) ? -1 : 1;
-      }
-    } else {
-      return parseFloat(a[index]) > parseFloat(b[index]) ? -1 : 1;
-    }
-  };
-
   drawTable() {
-    var stats_raw = [...this.props.stats];
-    var stats_temp = [];
-    var stats = [];
     var headers = [
       "CP@15",
       "HP@15",
@@ -82,33 +44,11 @@ class TableGenerator extends Component {
       "HP@40"
     ];
 
-    if (!this.props.options.toggle.under90) {
-      for (var i = 0; i < stats_raw.length; i++) {
-        if (stats_raw[i][6] > 90) {
-          stats_temp.push(stats_raw[i]);
-        }
-        if (i === stats_raw.length - 1) {
-          if (this.props.options.toggle.nundo) {
-            stats_temp.push(stats_raw[i]);
-          }
-        }
-      }
-    } else {
-      stats_temp = stats_raw;
-    }
-
     if (!this.props.options.toggle.lvl15) {
       headers.shift();
       headers.shift();
-      for (i = 0; i < stats_temp.length; i++) {
-        stats.push(stats_temp[i].slice(2, stats_temp[i].length));
-      }
-    } else {
-      stats = stats_temp;
     }
-
-    stats.sort(this.sortFunction);
-
+    const stats = this.props.stats;
     return (
       <table>
         <thead>
