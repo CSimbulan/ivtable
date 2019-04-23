@@ -4,19 +4,22 @@ import Options from "./components/Options";
 import TableGenerator from "./components/TableGenerator";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import "./AutoCompleteSearch.css";
-import names from "./components/names";
-import basestats from "./components/basestats";
+import pokemondata from "./components/pokemondata";
 import banner from "./ivtable_banner.png";
 
 class App extends Component {
   state = {
     data: [
-      { id: "names", filename: "names.txt", value: names },
-      { id: "cpm", filename: "cpmultipliers.txt", value: [] },
-      { id: "stats", filename: "basestats.txt", value: basestats }
+      {
+        id: "names",
+        value: pokemondata.map(x => x.split(",")[0])
+      },
+      { id: "cpm", value: [] },
+      { id: "stats", value: pokemondata }
     ],
     search: {
       selected: "",
+      selected_number: "",
       suggestions: [],
       text: "",
       selectedStats: [],
@@ -52,7 +55,8 @@ class App extends Component {
       var split = data[i].split(",");
       var x = String(state.search.selected);
       if (split[0] === x) {
-        state.search.selectedStats = split;
+        state.search.selectedStats = split.slice(0, 4);
+        state.search.selected_number = split[4];
       }
     }
     this.setState(() => ({ state }));
@@ -172,11 +176,28 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
+  getImageUrl = () => {
+    /*Add special case for castform forms since they aren't in the official assets.*/
+    if (this.state.search.selected_number === "351_f2") {
+      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
+    } else if (this.state.search.selected_number === "351_f3") {
+      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Sunny.png";
+    } else if (this.state.search.selected_number === "351_f4") {
+      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Snow.png";
+    }
+
+    return (
+      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
+      this.state.search.selected_number +
+      ".png"
+    );
+  };
+
   render() {
     return (
       <div className="App">
         <div className="Container">
-          <img src={banner} alt="Banner" />
+          <img src={banner} alt="Pokémon IV Table Generator" />
           <div className="Header">
             <h1>Enter a Pokémon:</h1>
           </div>
@@ -201,6 +222,10 @@ class App extends Component {
           <br />
           <hr />
           <h1>{this.state.search.selected}</h1>
+          <div className="tableImage">
+            <img src={this.getImageUrl()} alt="" />
+          </div>
+
           <TableGenerator
             options={this.state.options}
             stats={this.state.search.statsArray}
