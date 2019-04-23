@@ -181,9 +181,9 @@ class App extends Component {
     if (this.state.search.selected_number === "351_f2") {
       return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
     } else if (this.state.search.selected_number === "351_f3") {
-      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Sunny.png";
+      return "https://cdn.bulbagarden.net/upload/b/b6/351Castform-Sunny.png";
     } else if (this.state.search.selected_number === "351_f4") {
-      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Snow.png";
+      return "https://cdn.bulbagarden.net/upload/f/f9/351Castform-Snowy.png";
     }
 
     return (
