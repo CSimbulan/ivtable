@@ -131,15 +131,15 @@ img {
 }
 
 .buttonExport {
-  background-color: #4caf50;
-  color: white;
+  background-color: #ffc400;
+  color: black;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   padding: 1%;
   text-align: center;
   border: 2px solid gray;
   display: inline-block;
-  width: 15%;
+  width: 15vw;
   font-size: 1.2vw;
   margin: auto;
   border-radius: 12px;
@@ -154,8 +154,9 @@ img {
   }
 
   .buttonExport:hover {
-    background-color: rgb(0, 250, 21);
+    background-color: yellow;
     border: 2px solid white;
+    color: gray;
   }
 }
 
