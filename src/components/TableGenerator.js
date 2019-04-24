@@ -30,25 +30,7 @@ class TableGenerator extends Component {
   };
 
   drawTable() {
-    var headers = [
-      "CP@15",
-      "HP@15",
-      "CP@20",
-      "HP@20",
-      "CP@25",
-      "HP@25",
-      "IV%",
-      "ATK",
-      "DEF",
-      "STA",
-      "CP@40",
-      "HP@40"
-    ];
-
-    if (!this.props.options.toggle.lvl15) {
-      headers.shift();
-      headers.shift();
-    }
+    var headers = this.getHeaders();
     const stats = this.props.stats;
     return (
       <table>
@@ -101,6 +83,30 @@ class TableGenerator extends Component {
     );
   };
 
+  getHeaders = () => {
+    var headers = [
+      "CP@15",
+      "HP@15",
+      "CP@20",
+      "HP@20",
+      "CP@25",
+      "HP@25",
+      "IV%",
+      "ATK",
+      "DEF",
+      "STA",
+      "CP@40",
+      "HP@40"
+    ];
+
+    if (!this.props.options.toggle.lvl15) {
+      headers.shift();
+      headers.shift();
+    }
+
+    return headers;
+  };
+
   render() {
     return (
       <div>
@@ -120,6 +126,7 @@ class TableGenerator extends Component {
           data={this.props.stats}
           filename={this.getFileName()}
           enclosingCharacter={`;`}
+          headers={this.getHeaders()}
         >
           <button className="buttonExport">Export As CSV File</button>
         </CSVLink>
