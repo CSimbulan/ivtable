@@ -1,3 +1,5 @@
 - April 21, 2019 (1.0.0): First working public version.
 
 - April 23, 2019 (1.1.0): Added Pokémon images above the table, and an export to csv file below the table.
+
+- April 23, 2019 (1.1.1): Added headers to exported csv file.
