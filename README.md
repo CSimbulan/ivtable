@@ -1,4 +1,4 @@
-## Pokémon GO IV Table Generator Ver 1.0.0
+## Pokémon GO IV Table Generator Ver 1.1.0
 
 This app lets you create an IV table for any Pokémon. Try it out here: https://csimbulan.github.io/ivtable
 
@@ -17,3 +17,7 @@ A table will automatically be generated. You can choose the following settings:
 - Level 15: this will show CP and HP for level 15. This is useful for research task Pokémon which are caught at level 15.
 - Under 90%: this will show all combinations of thats from 66.7% (10/10/10) to 100% (15/15/15). The nundo stats will show even if this setting is OFF.
 - Colored rows: this will toggle ON/OFF the coloring of table rows.
+
+### Export As CSV File
+
+This button will export the table data to a csv file. Note that all the values will be wrapped in double quotation marks. This is how the library used to export does it. There is supposed to be a way to remove the quotes but it does not seem to be working.
