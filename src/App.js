@@ -3,16 +3,19 @@ import "./App.css";
 import Options from "./components/Options";
 import TableGenerator from "./components/TableGenerator";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
+import PageHeader from "./components/PageHeader";
+import PageFooter from "./components/PageFooter";
 import "./AutoCompleteSearch.css";
 import pokemondata from "./components/pokemondata";
-import banner from "./ivtable_banner.png";
 
 class App extends Component {
   state = {
     data: [
       {
         id: "names",
-        value: pokemondata.map(x => x.split(",")[0])
+        value: pokemondata.map(
+          x => x.split(",")[0]
+        ) /*Get first column from the data.*/
       },
       { id: "cpm", value: [] },
       { id: "stats", value: pokemondata }
@@ -182,27 +185,6 @@ class App extends Component {
     this.filterStats();
   };
 
-  getImageUrl = () => {
-    if (this.state.search.selected === "") {
-      return "";
-    }
-
-    /*Add special case for castform forms since they aren't in the official assets.*/
-    if (this.state.search.selected_number === "351_f2") {
-      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
-    } else if (this.state.search.selected_number === "351_f3") {
-      return "https://cdn.bulbagarden.net/upload/b/b6/351Castform-Sunny.png";
-    } else if (this.state.search.selected_number === "351_f4") {
-      return "https://cdn.bulbagarden.net/upload/f/f9/351Castform-Snowy.png";
-    }
-
-    return (
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
-      this.state.search.selected_number +
-      ".png"
-    );
-  };
-
   sortFunction = (a, b) => {
     const sortDict = {
       cp: 0,
@@ -275,10 +257,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Container">
-          <img src={banner} alt="Pokémon IV Table Generator" />
-          <div className="Header">
-            <h1>Enter a Pokémon:</h1>
-          </div>
+          <PageHeader />
           <div className="AutoCompleteSearch">
             <AutoCompleteSearch
               items={this.state.data[0]}
@@ -297,25 +276,13 @@ class App extends Component {
             toggleUnder90={this.toggleUnder90}
             toggleColor={this.toggleColor}
           />
-          <br />
-          <hr />
-          <h1>{this.state.search.selected}</h1>
-          <div className="tableImage">
-            <img src={this.getImageUrl()} alt="" />
-          </div>
           <TableGenerator
             options={this.state.options}
             stats={this.state.search.statsArray}
+            selected={this.state.search.selected}
+            selected_number={this.state.search.selected_number}
           />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <footer>
-            <hr />
-            Version 1.0.0
-          </footer>
+          <PageFooter />
         </div>
       </div>
     );
