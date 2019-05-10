@@ -3,3 +3,5 @@
 - April 23, 2019 (1.1.0): Added Pokémon images above the table, and an export to csv file below the table.
 
 - April 23, 2019 (1.1.1): Added headers to exported csv file.
+
+- May 10, 2019 (1.1.2): Minor text fixes.
