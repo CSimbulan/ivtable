@@ -8,7 +8,7 @@ class PageHeader extends Component {
       <div>
         <img src={banner} alt="Pokémon IV Table Generator" />
         <div className="Header">
-          <h1>Enter a Pokémon:</h1>
+          <h1>Select a Pokémon:</h1>
         </div>
       </div>
     );
