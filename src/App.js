@@ -194,7 +194,7 @@ class App extends Component {
     var index2 = 0; /*Secondary sort index.*/
     var index3 = 0; /*Tertiary sort index.*/
     if (this.state.options.sort === "iv") {
-      index2 = 8; /*If primary sort is by IV, secondary sort is by CP@40.*/
+      index2 = 0; /*If primary sort is by IV, secondary sort is by CP@20.*/
       index3 = 9; /*If primary sort is by IV, tertiary sort is by HP@40.*/
     } else {
       index2 = 8; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
