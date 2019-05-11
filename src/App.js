@@ -87,7 +87,6 @@ class App extends Component {
     const state = { ...this.state };
     state.options.sort = value;
     this.setState(() => ({ state }));
-    console.log(this.state.options.selected);
     if (this.state.search.selected) {
       this.generateStatsArray();
     }
