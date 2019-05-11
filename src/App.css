@@ -187,6 +187,11 @@ img {
     box-shadow: none;
     transform: translateY(6px);
   }
+
+  .modal .close:hover {
+    color: white;
+    background-color: #4bd5ff;
+  }
 }
 
 .highlighted {
