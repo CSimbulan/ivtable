@@ -110,7 +110,7 @@ img {
 .Box {
   border: 1px solid black;
   background-color: rgb(196, 226, 255);
-  width: 40%;
+  width: 30%;
   box-sizing: border-box;
   padding: 0.5%;
 }
@@ -121,6 +121,17 @@ img {
   font-size: medium;
 }
 
+.Box input {
+  width: 45%;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73);
+  box-sizing: border-box;
+  padding: 1%;
+}
+
 .buttonSort {
   color: white;
   font-weight: bold;
@@ -129,7 +140,7 @@ img {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: 40%;
+  width: 45%;
   font-size: 1.2vw;
   margin: 4px 2px;
   border-radius: 12px;
@@ -170,22 +181,33 @@ img {
     border: 2px solid white;
   }
 
+  .buttonReset:hover {
+    background-color: #fc4949;
+    border: 2px solid white;
+  }
+
   .buttonSort:active {
     background-color: rgb(171, 241, 177);
     box-shadow: none;
-    transform: translateY(6px);
+    transform: translateY(2px);
   }
 
   .buttonExport:active {
     background-color: yellow;
     box-shadow: none;
-    transform: translateY(6px);
+    transform: translateY(2px);
   }
 
   .buttonManual:active {
     background-color: #2b9dfa;
     box-shadow: none;
-    transform: translateY(6px);
+    transform: translateY(2px);
+  }
+
+  .buttonReset:active {
+    background-color: #fc4949;
+    box-shadow: none;
+    transform: translateY(2px);
   }
 
   .modal .close:hover {
@@ -269,9 +291,15 @@ footer {
   font-size: 1vw;
 }
 
+.tableImageHide {
+  display: none;
+}
+
 .tableImage img {
-  width: 20%;
-  height: 20%;
+  width: auto;
+  height: auto;
+  max-width: 20%;
+  max-height: 20%;
 }
 
 .Header .Instructions {
@@ -335,6 +363,22 @@ footer {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.buttonReset {
+  background-color: #c00202;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.5%;
+  text-align: center;
+  border: 2px solid gray;
+  display: inline-block;
+  width: 8vw;
+  font-size: 0.8vw;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 @media only screen and (max-width: 600px) {
   .Table table {
     font-size: 2.5vw;
@@ -355,7 +399,7 @@ footer {
   }
 
   .buttonSort {
-    width: 60%;
+    width: 70%;
     font-size: 1.75vw;
   }
 
@@ -366,6 +410,11 @@ footer {
 
   .buttonManual {
     width: 25%;
+    font-size: 1.75vw;
+  }
+
+  .buttonReset {
+    width: 15%;
     font-size: 1.75vw;
   }
 
