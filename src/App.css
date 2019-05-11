@@ -309,6 +309,8 @@ footer {
 .modal {
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
+  height: 600px;
+  overflow: auto;
 }
 .modal .header {
   width: 100%;
@@ -422,13 +424,20 @@ footer {
     font-size: 2.5vw;
   }
 
-  .modal {
-    height: 120vw;
-    overflow: scroll;
-  }
-
   .modal .content {
     font-size: 2.5vw;
     overflow-y: scroll;
+  }
+}
+
+@media only screen and (max-height: 600px) and (orientation: portrait) {
+  .modal {
+    height: 120vw;
+  }
+}
+
+@media only screen and (max-height: 600px) and (orientation: landscape) {
+  .modal {
+    height: 40vw;
   }
 }
