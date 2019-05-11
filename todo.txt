@@ -1,12 +1,13 @@
--add instruction/how it works
 -add more sorting/toggle options (sort by ATK value)
--add "show only cp_-" option
+-add "show only cp__" option
 -clean up code (repeated code)
--use cpm sheet
 -move renderSuggestions call out of app.render
 -option to convert table to image
 -look up library to convert html to image
 -add other language options
--refactor .css files to one App.css
 -add unique keys to mapping function in table generation
 -add "clear/reset" button
+-download assets from Chrale's github and change images to those
+-add option for shiny sprite
+-combine all toggle functions into one
+-change filtering so a new stats array doesn't have to be generated every time
