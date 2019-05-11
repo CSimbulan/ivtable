@@ -61,12 +61,27 @@ class TableGenerator extends Component {
     return filename;
   };
 
-  getImageUrl = () => {
+  getImageUrl = shiny => {
     if (this.props.selected === "") {
       return "";
     }
 
+    let dexNumber = this.props.selected_number;
+    if (dexNumber.length === 3) {
+      dexNumber += "_00";
+    }
+    if (shiny) {
+      dexNumber += "_shiny";
+    }
+    return (
+      process.env.PUBLIC_URL +
+      "/pokemon_icons/pokemon_icon_" +
+      dexNumber +
+      ".png"
+    );
+
     /*Add special case for castform forms since they aren't in the official assets.*/
+    /*
     if (this.props.selected_number === "351_f2") {
       return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
     } else if (this.props.selected_number === "351_f3") {
@@ -79,7 +94,7 @@ class TableGenerator extends Component {
       "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
       this.props.selected_number +
       ".png"
-    );
+    );*/
   };
 
   getHeaders = () => {
@@ -106,14 +121,37 @@ class TableGenerator extends Component {
     return headers;
   };
 
+  getName = () => {
+    let header = "";
+    if (this.props.selected) {
+      header += "#";
+    }
+
+    return (
+      header +
+      this.props.selected_number.slice(0, 3) +
+      " " +
+      this.props.selected
+    );
+  };
+
+  getImageClass = () => {
+    if (this.props.selected) {
+      return "tableImage";
+    } else {
+      return "tableImageHide";
+    }
+  };
+
   render() {
     return (
       <div>
         <br />
         <hr />
-        <h1>{this.props.selected}</h1>
-        <div className="tableImage">
-          <img src={this.getImageUrl()} alt="" />
+        <h1>{this.getName()}</h1>
+        <div className={this.getImageClass()}>
+          <img src={this.getImageUrl(false)} alt="" />
+          <img src={this.getImageUrl(true)} alt="" />
         </div>
         <div className="Table">{this.drawTable()}</div>
         <br />
@@ -129,6 +167,11 @@ class TableGenerator extends Component {
         >
           <button className="buttonExport">Export As CSV File</button>
         </CSVLink>
+        <br />
+        <br />
+        <button className="buttonReset" onClick={this.props.onClickReset}>
+          Reset
+        </button>
         <br />
         <br />
       </div>
