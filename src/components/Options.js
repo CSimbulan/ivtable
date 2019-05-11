@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../AutoCompleteSearch.css";
 
 class Options extends Component {
   state = {};
