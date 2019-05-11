@@ -17,20 +17,20 @@ Pidgey,85,73,120,016
 Pidgeotto,117,105,160,017
 Pidgeot,166,154,195,018
 Rattata,103,70,102,019
-Rattata-Alolan,103,70,102,019_f2
+Rattata-Alolan,103,70,102,019_61
 Raticate,161,139,146,020
-Raticate-Alolan,135,154,181,020_f2
+Raticate-Alolan,135,154,181,020_61
 Spearow,112,60,120,021
 Fearow,182,133,163,022
 Ekans,110,97,111,023
 Arbok,167,153,155,024
 Pikachu,112,96,111,025
 Raichu,193,151,155,026
-Raichu-Alolan,201,154,155,026_f2
+Raichu-Alolan,201,154,155,026_61
 Sandshrew,126,120,137,027
-Sandshrew-Alolan,125,129,137,027_f2
+Sandshrew-Alolan,125,129,137,027_61
 Sandslash,182,175,181,028
-Sandslash-Alolan,177,195,181,028_f2
+Sandslash-Alolan,177,195,181,028_61
 Nidoran,86,89,146,029
 Nidorina,117,120,172,030
 Nidoqueen,180,173,207,031
@@ -40,9 +40,9 @@ Nidoking,204,156,191,034
 Clefairy,107,108,172,035
 Clefable,178,162,216,036
 Vulpix,96,109,116,037
-Vulpix-Alolan,96,109,116,037_f2
+Vulpix-Alolan,96,109,116,037_61
 Ninetales,169,190,177,038
-Ninetales-Alolan,170,193,177,038_f2
+Ninetales-Alolan,170,193,177,038_61
 Jigglypuff,80,41,251,039
 Wigglytuff,156,90,295,040
 Zubat,83,73,120,041
@@ -55,13 +55,13 @@ Parasect,165,146,155,047
 Venonat,100,100,155,048
 Venomoth,179,143,172,049
 Diglett,109,78,67,050
-Diglett-Alolan,108,81,67,050_f2
+Diglett-Alolan,108,81,67,050_61
 Dugtrio,167,134,111,051
-Dugtrio-Alolan,201,142,111,051_f2
+Dugtrio-Alolan,201,142,111,051_61
 Meowth,92,78,120,052
-Meowth-Alolan,99,78,120,052_f2
+Meowth-Alolan,99,78,120,052_61
 Persian,150,136,163,053
-Persian-Alolan,158,136,163,053_f2
+Persian-Alolan,158,136,163,053_61
 Psyduck,122,95,137,054
 Golduck,191,162,190,055
 Mankey,148,82,120,056
@@ -83,11 +83,11 @@ Victreebel,207,135,190,071
 Tentacool,97,149,120,072
 Tentacruel,166,209,190,073
 Geodude,132,132,120,074
-Geodude-Alolan,132,132,120,074_f2
+Geodude-Alolan,132,132,120,074_61
 Graveler,164,164,146,075
-Graveler-Alolan,164,164,146,075_f2
+Graveler-Alolan,164,164,146,075_61
 Golem,211,198,190,076
-Golem-Alolan,211,198,190,076_f2
+Golem-Alolan,211,198,190,076_61
 Ponyta,170,127,137,077
 Rapidash,207,162,163,078
 Slowpoke,109,98,207,079
@@ -100,9 +100,9 @@ Dodrio,218,140,155,085
 Seel,85,121,163,086
 Dewgong,139,177,207,087
 Grimer,135,90,190,088
-Grimer-Alolan,135,90,190,088_f2
+Grimer-Alolan,135,90,190,088_61
 Muk,190,172,233,089
-Muk-Alolan,190,172,233,089_f2
+Muk-Alolan,190,172,233,089_61
 Shellder,116,134,102,090
 Cloyster,186,256,137,091
 Gastly,186,67,102,092
@@ -117,10 +117,10 @@ Voltorb,109,111,120,100
 Electrode,173,173,155,101
 Exeggcute,107,125,155,102
 Exeggutor,233,149,216,103
-Exeggutor-Alolan,230,153,216,103_f2
+Exeggutor-Alolan,230,153,216,103_61
 Cubone,90,144,137,104
 Marowak,144,186,155,105
-Marowak-Alolan,144,186,155,105_f2
+Marowak-Alolan,144,186,155,105_61
 Hitmonlee,224,181,137,106
 Hitmonchan,193,197,137,107
 Lickitung,108,137,207,108
@@ -367,9 +367,9 @@ Armaldo,222,174,181,348
 Feebas,29,85,85,349
 Milotic,192,219,216,350
 Castform,139,139,172,351
-Castform-Rainy,139,139,172,351_f2
-Castform-Sunny,139,139,172,351_f3
-Castform-Snowy,139,139,172,351_f4
+Castform-Rainy,139,139,172,351_13
+Castform-Sunny,139,139,172,351_12
+Castform-Snowy,139,139,172,351_14
 Kecleon,161,189,155,352
 Shuppet,138,65,127,353
 Banette,218,126,162,354
@@ -405,9 +405,9 @@ Groudon,270,228,205,383
 Rayquaza,284,170,213,384
 Jirachi,210,210,225,385
 Deoxys,345,115,137,386
-Deoxys-Attack,414,46,137,386_f2
-Deoxys-Defense,144,330,137,386_f3
-Deoxys-Speed,230,218,137,386_f4
+Deoxys-Attack,414,46,137,386_12
+Deoxys-Defense,144,330,137,386_13
+Deoxys-Speed,230,218,137,386_14
 Turtwig,119,110,146,387
 Grotle,157,143,181,388
 Torterra,202,188,216,389
@@ -433,12 +433,12 @@ Cranidos,218,71,167,408
 Rampardos,295,109,219,409
 Shieldon,76,195,102,410
 Bastiodon,94,286,155,411
-Burmy,53,83,120,412
-Burmy-Sandy Cloak,53,83,120,412_f2
-Burmy-Trash Cloak,53,83,120,412_f3
-Wormadam,141,180,155,413
-Wormadam-Sandy Cloak,141,180,155,413_f2
-Wormadam-Trash Cloak,127,175,155,413_f3
+Burmy,53,83,120,412_11
+Burmy-Sandy Cloak,53,83,120,412_12
+Burmy-Trash Cloak,53,83,120,412_13
+Wormadam,141,180,155,413_11
+Wormadam-Sandy Cloak,141,180,155,413_12
+Wormadam-Trash Cloak,127,175,155,413_13
 Mothim,185,98,172,414
 Combee,59,83,102,415
 Vespiquen,149,190,172,416
@@ -446,12 +446,12 @@ Pachirisu,94,172,155,417
 Buizel,132,67,146,418
 Floatzel,221,114,198,419
 Cherubi,108,92,128,420
-Cherrim-Overcast,170,153,172,421
-Cherrim-Sunshine,170,153,172,421_f2
-Shellos-West,103,105,183,422
-Shellos-East,103,105,183,422_f2
-Gastrodon-West,169,143,244,423
-Gastrodon-East,169,143,244,423_f2
+Cherrim-Overcast,170,153,172,421_11
+Cherrim-Sunshine,170,153,172,421_12
+Shellos-West,103,105,183,422_11
+Shellos-East,103,105,183,422_12
+Gastrodon-West,169,143,244,423_11
+Gastrodon-East,169,143,244,423__12
 Ambipom,205,143,181,424
 Drifloon,117,80,207,425
 Drifblim,180,102,312,426
@@ -508,11 +508,11 @@ Probopass,135,275,155,476
 Dusknoir,180,254,128,477
 Froslass,171,150,172,478
 Rotom,185,159,137,479
-Rotom-Heat,204,219,137,479_f2
-Rotom-Wash,204,219,137,479_f3
-Rotom-Frost,204,219,137,479_f4
-Rotom-Fan,204,219,137,479_f5
-Rotom-Mow,204,219,137,479_f6
+Rotom-Heat,204,219,137,479_12
+Rotom-Wash,204,219,137,479_13
+Rotom-Frost,204,219,137,479_14
+Rotom-Fan,204,219,137,479_15
+Rotom-Mow,204,219,137,479_16
 Uxie,156,270,181,480
 Mesprit,212,212,190,481
 Azelf,270,151,181,482
@@ -521,13 +521,13 @@ Palkia,280,215,189,484
 Heatran,251,213,209,485
 Regigigas,287,210,221,486
 Giratina-Altered,187,225,284,487
-Giratina-Origin,225,187,284,487_f2
+Giratina-Origin,225,187,284,487_12
 Cresselia,152,258,260,488
 Phione,162,162,190,489
 Manaphy,210,210,225,490
 Darkrai,285,198,172,491
-Shaymin-Land,210,210,225,492
-Shaymin-Sky,261,166,225,492_f2
+Shaymin-Land,210,210,225,492_11
+Shaymin-Sky,261,166,225,492_12
 Arceus,238,238,237,493
 Meltan,118,99,130,808
 Melmetal,226,190,264,809`.split("\n");
