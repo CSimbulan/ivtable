@@ -65,6 +65,21 @@ class Options extends Component {
             Colored Rows
           </button>
         </div>
+        <div className="Box">
+          <div className="OptionsHeader">CP Filter</div>
+          <button
+            className={this.highlightToggle(this.props.options.cpfilter)}
+            onClick={this.props.toggleCPFilter}
+          >
+            Show Only CP:
+          </button>
+          <br />
+          <input
+            value={this.props.filterCP}
+            onChange={this.props.onFilterChanged}
+            type="number"
+          />
+        </div>
       </div>
     );
   }

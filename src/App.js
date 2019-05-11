@@ -8,8 +8,8 @@ import PageFooter from "./components/PageFooter";
 import pokemondata from "./components/pokemondata";
 import cpmultipliers from "./components/cpmultipliers";
 
-class App extends Component {
-  state = {
+function getinitialState() {
+  return {
     data: {
       names: pokemondata.map(
         x => x.split(",")[0]
@@ -28,10 +28,16 @@ class App extends Component {
     options: {
       id: "options",
       sort: "cp",
-      toggle: { nundo: true, lvl15: false, under90: false, color: true }
+      toggle: { nundo: true, lvl15: false, under90: false, color: true },
+      cpfilter: false,
+      filtervalue: ""
     },
-    version_number: "1.2.0"
+    version_number: "1.3.0"
   };
+}
+
+class App extends Component {
+  state = getinitialState();
 
   onTextChanged = e => {
     const value = e.target.value;
@@ -122,6 +128,15 @@ class App extends Component {
   toggleColor = () => {
     const state = { ...this.state };
     state.options.toggle.color = !state.options.toggle.color;
+    this.setState(() => ({ state }));
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
+  toggleCPFilter = () => {
+    const state = { ...this.state };
+    state.options.cpfilter = !state.options.cpfilter;
     this.setState(() => ({ state }));
     if (this.state.search.selected) {
       this.generateStatsArray();
@@ -234,6 +249,21 @@ class App extends Component {
       stats_temp = stats_raw;
     }
 
+    if (this.state.options.cpfilter && this.state.options.filtervalue) {
+      var temp2 = [];
+      const filtervalue = parseInt(this.state.options.filtervalue);
+      for (i = 0; i < stats_temp.length; i++) {
+        if (
+          stats_temp[i][0] === filtervalue ||
+          stats_temp[i][2] === filtervalue ||
+          stats_temp[i][4] === filtervalue
+        ) {
+          temp2.push(stats_temp[i]);
+        }
+      }
+      stats_temp = temp2;
+    }
+
     if (!this.state.options.toggle.lvl15) {
       for (i = 0; i < stats_temp.length; i++) {
         stats.push(stats_temp[i].slice(2, stats_temp[i].length));
@@ -244,6 +274,21 @@ class App extends Component {
     const state = { ...this.state };
     state.search.statsArray = stats;
     this.setState(() => ({ state }));
+  };
+
+  onFilterChanged = e => {
+    const value = e.target.value;
+    const state = { ...this.state };
+    state.options.filtervalue = value;
+
+    this.setState(() => ({ state }));
+    if (this.state.options.cpfilter && this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
+  reset = () => {
+    this.setState(getinitialState());
   };
 
   render() {
@@ -268,12 +313,16 @@ class App extends Component {
             toggleLvl15={this.toggleLvl15}
             toggleUnder90={this.toggleUnder90}
             toggleColor={this.toggleColor}
+            toggleCPFilter={this.toggleCPFilter}
+            filterCP={this.state.options.filtervalue}
+            onFilterChanged={this.onFilterChanged}
           />
           <TableGenerator
             options={this.state.options}
             stats={this.state.search.statsArray}
             selected={this.state.search.selected}
             selected_number={this.state.search.selected_number}
+            onClickReset={this.reset}
           />
           <PageFooter version={this.state.version_number} />
         </div>
