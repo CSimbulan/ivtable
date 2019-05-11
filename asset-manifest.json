@@ -1,14 +1,14 @@
 {
-  "main.css": "/ivtable/static/css/main.dbda9a96.chunk.css",
-  "main.js": "/ivtable/static/js/main.666f1be4.chunk.js",
-  "main.js.map": "/ivtable/static/js/main.666f1be4.chunk.js.map",
+  "main.css": "/ivtable/static/css/main.b2b976d8.chunk.css",
+  "main.js": "/ivtable/static/js/main.a3be6a95.chunk.js",
+  "main.js.map": "/ivtable/static/js/main.a3be6a95.chunk.js.map",
   "runtime~main.js": "/ivtable/static/js/runtime~main.a539f581.js",
   "runtime~main.js.map": "/ivtable/static/js/runtime~main.a539f581.js.map",
   "static/js/2.46b8e73c.chunk.js": "/ivtable/static/js/2.46b8e73c.chunk.js",
   "static/js/2.46b8e73c.chunk.js.map": "/ivtable/static/js/2.46b8e73c.chunk.js.map",
   "index.html": "/ivtable/index.html",
-  "precache-manifest.d58b1276f9632c4acfa2b9a753511f25.js": "/ivtable/precache-manifest.d58b1276f9632c4acfa2b9a753511f25.js",
+  "precache-manifest.7f1e560f318cb631390f23efb036202c.js": "/ivtable/precache-manifest.7f1e560f318cb631390f23efb036202c.js",
   "service-worker.js": "/ivtable/service-worker.js",
-  "static/css/main.dbda9a96.chunk.css.map": "/ivtable/static/css/main.dbda9a96.chunk.css.map",
+  "static/css/main.b2b976d8.chunk.css.map": "/ivtable/static/css/main.b2b976d8.chunk.css.map",
   "static/media/ivtable_banner.png": "/ivtable/static/media/ivtable_banner.faf61ae5.png"
 }
