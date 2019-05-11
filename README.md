@@ -9,7 +9,7 @@ A table will automatically be generated. You can choose the following settings:
 ### Sort Settings
 
 - Sort by CP at level 20. in descending order. If two CPs are equal then it will next sort by CP at level 40, followed by IV percentage.
-- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at level 40, follow by HP at level 40.
+- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at level 20, follow by CP at level 20.
 
 ### Toggle Settings
 
