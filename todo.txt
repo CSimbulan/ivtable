@@ -8,4 +8,3 @@
 -combine all toggle functions into one
 -change filtering so a new stats array doesn't have to be generated every time
 -scale images for small Pokemon
--scale user manual for landscape mode on mobile phones
