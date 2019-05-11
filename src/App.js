@@ -30,7 +30,7 @@ class App extends Component {
       sort: "cp",
       toggle: { nundo: true, lvl15: false, under90: false, color: true }
     },
-    version_number: "1.1.2"
+    version_number: "1.2.0"
   };
 
   onTextChanged = e => {

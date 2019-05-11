@@ -5,3 +5,5 @@
 - April 23, 2019 (1.1.1): Added headers to exported csv file.
 
 - May 10, 2019 (1.1.2): Minor text fixes.
+
+- May 11, 2019 (1.2.0): Added instructions section. Lots of refactoring; removed repeated code, moved sorting before filtering to prevent changing sorting indices.
