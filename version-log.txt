@@ -9,3 +9,5 @@
 - May 11, 2019 (1.2.0): Added instructions section. Lots of refactoring; removed repeated code, moved sorting before filtering to prevent changing sorting indices.
 
 - May 11, 2019 (1.3.0): Added cp filter, reset button, and changed pictures to Pokémon GO sprites and added shiny version.
+
+- May 11, 2019 (1.3.1): Fixed user manual scaling for mobile devices.
