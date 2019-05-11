@@ -1,33 +1,380 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  /*background-color: rgb(196, 226, 255);*/
+  background-image: url("./background.png");
+}
+
+img {
+  width: 100%;
+}
+
+#root {
+  position: absolute;
+  min-height: 100%;
+  height: 100%;
+}
 .App {
+  min-height: 100%;
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Container {
+  width: 90%;
+  min-height: 100%;
+  margin: auto;
+  background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.Header h1 {
+  font-family: "Bodoni MT";
+  padding: 1%;
+}
+
+.Header {
+  width: 90%;
+  margin: auto;
+}
+
+.AutoCompleteSearch {
+  width: 90%;
+  margin: auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73);
+  position: relative;
+}
+
+.AutoCompleteSearch input {
+  width: 100%;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.73);
+  padding: 10px 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.AutoCompleteSearch ul {
+  position: absolute;
+  z-index: 1;
+  list-style-type: none;
+  text-align: left;
+  margin: auto;
+  padding: 0;
+  border: 1px solid gray;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px 1px rgba(0, 0, 0, 0.18);
+  width: 100%;
+  background-color: white;
+  left: 50%;
+  transform: translate(-50.0005%, 0);
+}
+
+.AutoCompleteSearch ul::before {
+  content: "";
+}
+
+.AutoCompleteSearch li {
+  padding: 10px 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.AutoCompleteSearch li:hover {
+  text-decoration: underline;
   color: white;
+  background-color: rgba(38, 38, 114, 0.92);
 }
 
-.App-link {
-  color: #61dafb;
+.test {
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Options {
+  width: 90%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+.Box {
+  border: 1px solid black;
+  background-color: rgb(196, 226, 255);
+  width: 40%;
+  box-sizing: border-box;
+  padding: 0.5%;
+}
+
+.OptionsHeader {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.buttonSort {
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 40%;
+  font-size: 1.2vw;
+  margin: 4px 2px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.buttonExport {
+  background-color: #ffc400;
+  color: black;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1%;
+  text-align: center;
+  border: 2px solid gray;
+  display: inline-block;
+  width: 15vw;
+  font-size: 1.2vw;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Add mouse hover effect for buttons. For some reason still works on some mobile devices.*/
+@media (pointer: fine) {
+  .buttonSort:hover {
+    background-color: rgb(0, 250, 21);
+    border: 2px solid white;
   }
-  to {
-    transform: rotate(360deg);
+
+  .buttonExport:hover {
+    background-color: yellow;
+    border: 2px solid white;
+    color: gray;
+  }
+
+  .buttonManual:hover {
+    background-color: #2b9dfa;
+    border: 2px solid white;
+  }
+
+  .buttonSort:active {
+    background-color: rgb(171, 241, 177);
+    box-shadow: none;
+    transform: translateY(6px);
+  }
+
+  .buttonExport:active {
+    background-color: yellow;
+    box-shadow: none;
+    transform: translateY(6px);
+  }
+
+  .buttonManual:active {
+    background-color: #2b9dfa;
+    box-shadow: none;
+    transform: translateY(6px);
+  }
+}
+
+.highlighted {
+  background-color: rgb(0, 250, 21);
+  border: 2px solid white;
+}
+
+.notHighlighted {
+  background-color: #4caf50;
+  border: 2px solid gray;
+}
+
+hr {
+  width: 90%;
+}
+
+.Table {
+  width: 90%;
+  margin: auto;
+}
+
+.Table table {
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  table-layout: fixed;
+  font-size: 1vw;
+}
+
+.Table table th,
+td {
+  padding: 1%;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
+}
+
+.hundo {
+  background-color: #4bd5ff;
+}
+
+.ninetyEight {
+  background-color: #9dff65;
+}
+
+.ninetySix {
+  background-color: #f7fa63;
+}
+
+.ninetyThree {
+  background-color: rgb(255, 194, 80);
+}
+
+.ninetyOne {
+  background-color: rgb(236, 125, 125);
+}
+
+.nundo {
+  background-color: rgb(201, 201, 201);
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2vw;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+}
+
+.tableImage img {
+  width: 20%;
+  height: 20%;
+}
+
+.Header .Instructions {
+  font-size: 1vw;
+}
+
+.modal {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.modal .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal .content {
+  width: 90%;
+  padding: 10px 5px;
+  margin: auto;
+  font-size: 1vw;
+}
+
+.modal .content li {
+  text-align: left;
+}
+.modal .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.buttonManual {
+  background-color: #005296;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.5%;
+  text-align: center;
+  border: 2px solid gray;
+  display: inline-block;
+  width: 8vw;
+  font-size: 0.8vw;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (max-width: 600px) {
+  .Table table {
+    font-size: 2.5vw;
+    width: 100%;
+  }
+
+  .Table table th,
+  td {
+    padding: 0.1%;
+  }
+
+  .Table table th {
+    font-size: 1.5vw;
+  }
+
+  h1 {
+    font-size: 4vw;
+  }
+
+  .buttonSort {
+    width: 60%;
+    font-size: 1.75vw;
+  }
+
+  .buttonExport {
+    width: 25%;
+    font-size: 1.75vw;
+  }
+
+  .buttonManual {
+    width: 25%;
+    font-size: 1.75vw;
+  }
+
+  .Header .Instructions {
+    font-size: 2.5vw;
+  }
+
+  .modal {
+    height: 120vw;
+    overflow: scroll;
+  }
+
+  .modal .content {
+    font-size: 2.5vw;
+    overflow-y: scroll;
   }
 }
