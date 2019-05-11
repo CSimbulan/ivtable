@@ -6,7 +6,7 @@ class PageFooter extends Component {
     return (
       <footer>
         <hr />
-        Version 1.1.2
+        Version {this.props.version}
       </footer>
     );
   }
