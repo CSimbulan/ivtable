@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../AutoCompleteSearch.css";
 import { CSVLink } from "react-csv";
 
 class TableGenerator extends Component {
