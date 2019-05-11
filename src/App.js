@@ -5,21 +5,18 @@ import TableGenerator from "./components/TableGenerator";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import PageHeader from "./components/PageHeader";
 import PageFooter from "./components/PageFooter";
-import "./AutoCompleteSearch.css";
 import pokemondata from "./components/pokemondata";
+import cpmultipliers from "./components/cpmultipliers";
 
 class App extends Component {
   state = {
-    data: [
-      {
-        id: "names",
-        value: pokemondata.map(
-          x => x.split(",")[0]
-        ) /*Get first column from the data.*/
-      },
-      { id: "cpm", value: [] },
-      { id: "stats", value: pokemondata }
-    ],
+    data: {
+      names: pokemondata.map(
+        x => x.split(",")[0]
+      ) /*Get first column from the data.*/,
+      cpm: cpmultipliers,
+      stats: pokemondata
+    },
     search: {
       selected: "",
       selected_number: "",
@@ -32,7 +29,8 @@ class App extends Component {
       id: "options",
       sort: "cp",
       toggle: { nundo: true, lvl15: false, under90: false, color: true }
-    }
+    },
+    version_number: "1.1.2"
   };
 
   onTextChanged = e => {
@@ -40,7 +38,7 @@ class App extends Component {
     let suggestions = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, "i");
-      suggestions = this.state.data[0].value.sort().filter(v => regex.test(v));
+      suggestions = this.state.data.names.sort().filter(v => regex.test(v));
     }
     const state = { ...this.state };
     state.search.text = value;
@@ -53,7 +51,7 @@ class App extends Component {
     state.search.text = value;
     state.search.suggestions = [];
     state.search.selected = value;
-    const data = this.state.data[2].value;
+    const data = this.state.data.stats;
     for (var i = 0; i < data.length; i++) {
       var split = data[i].split(",");
       var x = String(state.search.selected);
@@ -89,35 +87,60 @@ class App extends Component {
     const state = { ...this.state };
     state.options.sort = value;
     this.setState(() => ({ state }));
-    this.generateStatsArray();
+    console.log(this.state.options.selected);
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
   };
 
   toggleNundo = () => {
     const state = { ...this.state };
     state.options.toggle.nundo = !state.options.toggle.nundo;
     this.setState(() => ({ state }));
-    this.generateStatsArray();
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
   };
 
   toggleLvl15 = () => {
     const state = { ...this.state };
     state.options.toggle.lvl15 = !state.options.toggle.lvl15;
     this.setState(() => ({ state }));
-    this.generateStatsArray();
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
   };
 
   toggleUnder90 = () => {
     const state = { ...this.state };
     state.options.toggle.under90 = !state.options.toggle.under90;
     this.setState(() => ({ state }));
-    this.generateStatsArray();
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
   };
 
   toggleColor = () => {
     const state = { ...this.state };
     state.options.toggle.color = !state.options.toggle.color;
     this.setState(() => ({ state }));
-    this.generateStatsArray();
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
+  getCPM = level => {
+    var cpm = 0;
+    const cpmArray = this.state.data.cpm;
+    cpm = parseFloat(cpmArray[level * 2 - 2].split(",")[1]);
+    return cpm;
+  };
+
+  calculateCP = (atk, def, sta, lvl) => {
+    return Math.floor(
+      (atk * Math.sqrt(def) * Math.sqrt(sta) * Math.pow(this.getCPM(lvl), 2)) /
+        10
+    );
   };
 
   generateStatsArray = () => {
@@ -129,38 +152,14 @@ class App extends Component {
       for (var de = 15; de > 9; de--) {
         for (var st = 15; st > 9; st--) {
           var iv = ((at + de + st) / 45.0) * 100;
-          var cp15 = Math.floor(
-            ((atk + at) *
-              Math.sqrt(def + de) *
-              Math.sqrt(sta + st) *
-              Math.pow(0.51739395, 2)) /
-              10
-          );
-          var cp20 = Math.floor(
-            ((atk + at) *
-              Math.sqrt(def + de) *
-              Math.sqrt(sta + st) *
-              Math.pow(0.59740001, 2)) /
-              10
-          );
-          var cp25 = Math.floor(
-            ((atk + at) *
-              Math.sqrt(def + de) *
-              Math.sqrt(sta + st) *
-              Math.pow(0.667934, 2)) /
-              10
-          );
-          var cp40 = Math.floor(
-            ((atk + at) *
-              Math.sqrt(def + de) *
-              Math.sqrt(sta + st) *
-              Math.pow(0.79030001, 2)) /
-              10
-          );
-          var hp15 = Math.floor((sta + st) * 0.51739395);
-          var hp20 = Math.floor((sta + st) * 0.59740001);
-          var hp25 = Math.floor((sta + st) * 0.667934);
-          var hp40 = Math.floor((sta + st) * 0.79030001);
+          var cp15 = this.calculateCP(atk + at, def + de, sta + st, 15.0);
+          var cp20 = this.calculateCP(atk + at, def + de, sta + st, 20.0);
+          var cp25 = this.calculateCP(atk + at, def + de, sta + st, 25.0);
+          var cp40 = this.calculateCP(atk + at, def + de, sta + st, 40.0);
+          var hp15 = Math.floor((sta + st) * this.getCPM(15.0));
+          var hp20 = Math.floor((sta + st) * this.getCPM(20.0));
+          var hp25 = Math.floor((sta + st) * this.getCPM(25.0));
+          var hp40 = Math.floor((sta + st) * this.getCPM(40.0));
           var newArray = [
             cp15,
             hp15,
@@ -179,6 +178,7 @@ class App extends Component {
         }
       }
     }
+    statsArray.sort(this.sortFunction);
     const state = { ...this.state };
     state.search.statsArray = statsArray;
     this.setState(() => ({ state }));
@@ -187,23 +187,18 @@ class App extends Component {
 
   sortFunction = (a, b) => {
     const sortDict = {
-      cp: 0,
-      iv: 4
+      cp: 2,
+      iv: 6
     };
     var index = sortDict[this.state.options.sort];
     var index2 = 0; /*Secondary sort index.*/
     var index3 = 0; /*Tertiary sort index.*/
     if (this.state.options.sort === "iv") {
-      index2 = 0; /*If primary sort is by IV, secondary sort is by CP@20.*/
-      index3 = 1; /*If primary sort is by IV, tertiary sort is by HP@20.*/
+      index2 = 2; /*If primary sort is by IV, secondary sort is by CP@20.*/
+      index3 = 10; /*If primary sort is by IV, tertiary sort is by CP@40.*/
     } else {
-      index2 = 8; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
-      index3 = 4; /*If primary sort is by IV, teriary sort is by IV.*/
-    }
-    if (this.state.options.toggle.lvl15) {
-      index += 2;
-      index2 += 2;
-      index3 += 2;
+      index2 = 10; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
+      index3 = 6; /*If primary sort is by IV, teriary sort is by IV.*/
     }
     if (parseFloat(a[index]) === parseFloat(b[index])) {
       if (parseFloat(a[index2]) === parseFloat(b[index2])) {
@@ -247,7 +242,6 @@ class App extends Component {
     } else {
       stats = stats_temp;
     }
-    stats.sort(this.sortFunction);
     const state = { ...this.state };
     state.search.statsArray = stats;
     this.setState(() => ({ state }));
@@ -257,10 +251,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Container">
-          <PageHeader />
+          <PageHeader version={this.state.version_number} />
           <div className="AutoCompleteSearch">
             <AutoCompleteSearch
-              items={this.state.data[0]}
+              items={this.state.data.names}
               search={this.state.search}
               onTextChanged={this.onTextChanged}
               renderSuggestions={this.renderSuggestions}
@@ -282,7 +276,7 @@ class App extends Component {
             selected={this.state.search.selected}
             selected_number={this.state.search.selected_number}
           />
-          <PageFooter />
+          <PageFooter version={this.state.version_number} />
         </div>
       </div>
     );
