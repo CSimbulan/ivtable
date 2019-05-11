@@ -79,12 +79,21 @@ class PageHeader extends Component {
                         table rows.
                       </li>
                     </ul>
+                    <h2>CP Filter</h2>
+                    <ul>
+                      <li>
+                        Show Only CP: the table will only show IV combinations
+                        that produce a CP matched with the value entered here.
+                      </li>
+                    </ul>
                     <h2>Export As CSV File</h2>
                     This button will export the table data to a csv file. Note
                     that all the values will be wrapped in double quotation
                     marks. This is how the library used to export does it. There
                     is supposed to be a way to remove the quotes but it does not
                     seem to be working.
+                    <h2>Reset</h2>
+                    Clears the table and resets all settings to default.
                   </div>
                   <div className="actions">
                     <button
