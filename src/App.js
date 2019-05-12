@@ -3,10 +3,13 @@ import "./App.css";
 import Options from "./components/Options";
 import TableGenerator from "./components/TableGenerator";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
-import PageHeader from "./components/PageHeader";
+import Instructions from "./components/Instructions";
 import PageFooter from "./components/PageFooter";
-import pokemondata from "./components/pokemondata";
-import cpmultipliers from "./components/cpmultipliers";
+import pokemondata from "./data/pokemondata";
+import cpmultipliers from "./data/cpmultipliers";
+import typeCounters from "./data/typeCounters";
+import typeResistances from "./data/typeResistances";
+import weatherBoosts from "./data/weatherBoosts";
 
 function getinitialState() {
   return {
@@ -339,60 +342,6 @@ class App extends Component {
 
   getCounters = () => {
     const typings = this.state.search.typing;
-    const typeCounters = {
-      Normal: ["Fighting"],
-      Fire: ["Water", "Rock", "Ground"],
-      Water: ["Electric", "Grass"],
-      Electric: ["Ground"],
-      Grass: ["Fire", "Ice", "Poison", "Flying", "Bug"],
-      Ice: ["Fire", "Rock", "Steel", "Fighting"],
-      Fighting: ["Flying", "Psychic", "Fairy"],
-      Poison: ["Ground", "Psychic"],
-      Ground: ["Water", "Grass", "Ice"],
-      Flying: ["Electric", "Rock", "Ice"],
-      Psychic: ["Bug", "Ghost", "Dark"],
-      Bug: ["Fire", "Flying", "Rock"],
-      Rock: ["Water", "Steel", "Grass", "Fighting", "Ground"],
-      Ghost: ["Ghost", "Dark"],
-      Dragon: ["Dragon", "Ice", "Fairy"],
-      Dark: ["Fighting", "Bug", "Fairy"],
-      Steel: ["Fire", "Fighting", "Ground"],
-      Fairy: ["Poison", "Steel"]
-    };
-
-    const typeResistances = {
-      Normal: ["Ghost"],
-      Fire: ["Bug", "Steel", "Fire", "Grass", "Ice", "Fairy"],
-      Water: ["Steel", "Fire", "Water", "Ice"],
-      Electric: ["Flying", "Steel", "Electric"],
-      Grass: ["Ground", "Water", "Grass", "Electric"],
-      Ice: ["Ice"],
-      Fighting: ["Rock", "Bug", "Dark"],
-      Poison: ["Fighting", "Poison", "Grass", "Fairy", "Bug"],
-      Ground: ["Poison", "Rock", "Electric"],
-      Flying: ["Bug", "Fighting", "Grass", "Ground"],
-      Psychic: ["Fighting", "Psychic"],
-      Bug: ["Fighting", "Grass", "Ground"],
-      Rock: ["Fire", "Flying", "Normal", "Poison"],
-      Ghost: ["Bug", "Poison", "Normal", "Fighting"],
-      Dragon: ["Electric", "Fire", "Water", "Grass"],
-      Dark: ["Dark", "Ghost", "Psychic"],
-      Steel: [
-        "Bug",
-        "Dragon",
-        "Fairy",
-        "Flying",
-        "Grass",
-        "Ice",
-        "Normal",
-        "Psychic",
-        "Rock",
-        "Steel",
-        "Poison"
-      ],
-      Fairy: ["Bug", "Dark", "Fighting", "Dragon"]
-    };
-
     let counters = [];
     let resistances = [];
 
@@ -413,30 +362,10 @@ class App extends Component {
     state.search.counters = counters;
     state.search.resistances = resistances;
     this.setState(() => ({ state }));
+    console.log(counters);
   };
 
   getWeather = () => {
-    const weatherBoosts = {
-      Normal: "PartlyCloudy",
-      Rock: "PartlyCloudy",
-      Fairy: "Cloudy",
-      Fighting: "Cloudy",
-      Poison: "Cloudy",
-      Dark: "Fog",
-      Ghost: "Fog",
-      Water: "Rain",
-      Bug: "Rain",
-      Electric: "Rain",
-      Steel: "Snow",
-      Ice: "Snow",
-      Grass: "Clear",
-      Ground: "Clear",
-      Fire: "Clear",
-      Dragon: "Windy",
-      Psychic: "Windy",
-      Flying: "Windy"
-    };
-
     const types = this.state.search.typing;
     var boosts = [];
     for (var i in types) {
@@ -447,11 +376,12 @@ class App extends Component {
     state.search.weather = boosts;
     this.setState(() => ({ state }));
   };
+
   render() {
     return (
       <div className="App">
         <div className="Container">
-          <PageHeader version={this.state.version_number} />
+          <Instructions version={this.state.version_number} />
           <div className="AutoCompleteSearch">
             <AutoCompleteSearch
               items={this.state.data.names}
