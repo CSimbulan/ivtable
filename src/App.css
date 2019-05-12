@@ -65,7 +65,7 @@ img {
 .AutoCompleteSearch .ClearSearch {
   position: absolute;
   z-index: 1;
-
+  cursor: default;
   width: 25px;
   height: 25px;
   right: 1%;
