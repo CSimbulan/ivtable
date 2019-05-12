@@ -38,8 +38,9 @@ class PageHeader extends Component {
                     <br />
                     This app lets you create an IV table for any Pokémon.
                     <br />
-                    To use it, start typing a Pokémon species in the text bar. A
-                    dropdown menu will appear allowing you to select a species.
+                    To use it, start typing a Pokémon species or number in the
+                    text bar. A dropdown menu will appear allowing you to select
+                    a species.
                     <br />A table will automatically be generated. You can
                     choose the following settings:
                     <br />

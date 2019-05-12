@@ -2,7 +2,7 @@
 
 This app lets you create an IV table for any Pokémon. Try it out here: https://csimbulan.github.io/ivtable
 
-To use it, start typing a Pokémon species in the text bar. A dropdown menu will appear allowing you to select a species.
+To use it, start typing a Pokémon species or number in the text bar. A dropdown menu will appear allowing you to select a species.
 
 A table will automatically be generated. You can choose the following settings:
 
