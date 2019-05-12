@@ -1,4 +1,4 @@
-## Pokémon GO IV Table Generator Ver 1.3.1
+## Pokémon GO IV Table Generator Ver 1.4.0
 
 This app lets you create an IV table for any Pokémon. Try it out here: https://csimbulan.github.io/ivtable
 
