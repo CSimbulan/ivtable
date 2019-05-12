@@ -102,7 +102,7 @@ class TableGenerator extends Component {
 
     return (
       process.env.PUBLIC_URL +
-      "/weather_icons/weathericon_small_" +
+      "/weather_icons/weatherIcon_small_" +
       weather +
       ".png"
     );
