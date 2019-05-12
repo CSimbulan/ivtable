@@ -8,3 +8,5 @@
 -combine all toggle functions into one
 -change filtering so a new stats array doesn't have to be generated every time
 -scale images for small Pokemon
+-fix bug in firefox where rows aren't fully colored (e.g. select lapras -> type 1131 in show only cp then toggle on and off lvl 15)\
+-add base stats, typing and weaknessess to table
