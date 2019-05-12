@@ -28,6 +28,10 @@ class TableGenerator extends Component {
     return pairs[row[index]];
   };
 
+  generateRandomKey = () => {
+    return Math.random() * 100 + 1;
+  };
+
   drawTable() {
     var headers = this.getHeaders();
     const stats = this.props.stats;
@@ -42,9 +46,9 @@ class TableGenerator extends Component {
         </thead>
         <tbody>
           {stats.map(row => (
-            <tr className={this.getRowClass(row)}>
+            <tr className={this.getRowClass(row)} key={row.join()}>
               {row.map(column => (
-                <td>{column}</td>
+                <td key={this.generateRandomKey()}>{column}</td>
               ))}
             </tr>
           ))}
@@ -88,6 +92,19 @@ class TableGenerator extends Component {
 
     return (
       process.env.PUBLIC_URL + "/type_icons/Badge_Type_" + type + "_01.png"
+    );
+  };
+
+  getWeatherImagePath = weather => {
+    if (this.props.selected === "") {
+      return "";
+    }
+
+    return (
+      process.env.PUBLIC_URL +
+      "/weather_icons/weathericon_small_" +
+      weather +
+      ".png"
     );
   };
 
@@ -144,7 +161,7 @@ class TableGenerator extends Component {
         <hr />
         <h1>{this.getName()}</h1>
         <div className={this.getImageClass()}>
-          <div className="Block">
+          <div className="Block" id="BlockLeft">
             <strong>
               <i>
                 <u>Base Stats</u>
@@ -163,7 +180,7 @@ class TableGenerator extends Component {
           <div className="Block">
             <img src={this.getPkmnImagePath(true)} alt="" />
           </div>
-          <div className="Block">
+          <div className="Block" id="BlockRight">
             <strong>
               <i>
                 <u>Typing:</u>
@@ -175,6 +192,7 @@ class TableGenerator extends Component {
                 className="TypeIcon"
                 src={this.getTypeImagePath(type)}
                 alt={type}
+                key={type}
               />
             ))}
             <br />
@@ -189,20 +207,23 @@ class TableGenerator extends Component {
                 className="TypeIcon"
                 src={this.getTypeImagePath(type)}
                 alt={type}
+                key={type}
               />
             ))}
             <br />
+
             <strong>
               <i>
-                <u>Resistances:</u>
+                <u>Weather Boosts:</u>
               </i>
             </strong>
             <br />
-            {this.props.resistances.map(type => (
+            {this.props.weather.map(weather => (
               <img
                 className="TypeIcon"
-                src={this.getTypeImagePath(type)}
-                alt={type}
+                src={this.getWeatherImagePath(weather)}
+                alt={weather}
+                key={weather}
               />
             ))}
           </div>

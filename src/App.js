@@ -24,7 +24,8 @@ function getinitialState() {
       statsArray: [],
       typing: [],
       counters: [],
-      resistances: []
+      resistances: [],
+      weather: []
     },
     options: {
       id: "options",
@@ -101,6 +102,7 @@ class App extends Component {
     this.setState(() => ({ state }));
     this.generateStatsArray();
     this.getCounters();
+    this.getWeather();
   };
 
   renderSuggestions = () => {
@@ -331,6 +333,10 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
+  removeDuplicates = (item, index, inputArray) => {
+    return inputArray.indexOf(item) === index;
+  }; /*Remove duplicates*/
+
   getCounters = () => {
     const typings = this.state.search.typing;
     const typeCounters = {
@@ -390,15 +396,11 @@ class App extends Component {
     let counters = [];
     let resistances = [];
 
-    function removeDuplicates(item, index, inputArray) {
-      return inputArray.indexOf(item) === index;
-    } /*Remove duplicates*/
-
     for (var i in typings) {
       counters = counters.concat(typeCounters[typings[i]]);
-      counters = counters.filter(removeDuplicates);
+      counters = counters.filter(this.removeDuplicates);
       resistances = resistances.concat(typeResistances[typings[i]]);
-      resistances = resistances.filter(removeDuplicates);
+      resistances = resistances.filter(this.removeDuplicates);
     }
     for (var j in resistances) {
       for (var k = counters.length - 1; k >= 0; k--) {
@@ -413,6 +415,38 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
+  getWeather = () => {
+    const weatherBoosts = {
+      Normal: "PartlyCloudy",
+      Rock: "PartlyCloudy",
+      Fairy: "Cloudy",
+      Fighting: "Cloudy",
+      Poison: "Cloudy",
+      Dark: "Fog",
+      Ghost: "Fog",
+      Water: "Rain",
+      Bug: "Rain",
+      Electric: "Rain",
+      Steel: "Snow",
+      Ice: "Snow",
+      Grass: "Clear",
+      Ground: "Clear",
+      Fire: "Clear",
+      Dragon: "Windy",
+      Psychic: "Windy",
+      Flying: "Windy"
+    };
+
+    const types = this.state.search.typing;
+    var boosts = [];
+    for (var i in types) {
+      boosts.push(weatherBoosts[types[i]]);
+    }
+    boosts = boosts.filter(this.removeDuplicates);
+    const state = { ...this.state };
+    state.search.weather = boosts;
+    this.setState(() => ({ state }));
+  };
   render() {
     return (
       <div className="App">
@@ -450,6 +484,7 @@ class App extends Component {
             typing={this.state.search.typing}
             counters={this.state.search.counters}
             resistances={this.state.search.resistances}
+            weather={this.state.search.weather}
           />
           <PageFooter version={this.state.version_number} />
         </div>
