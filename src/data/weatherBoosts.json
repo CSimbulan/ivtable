@@ -1,0 +1,20 @@
+{
+  "Normal": "PartlyCloudy",
+  "Rock": "PartlyCloudy",
+  "Fairy": "Cloudy",
+  "Fighting": "Cloudy",
+  "Poison": "Cloudy",
+  "Dark": "Fog",
+  "Ghost": "Fog",
+  "Water": "Rain",
+  "Bug": "Rain",
+  "Electric": "Rain",
+  "Steel": "Snow",
+  "Ice": "Snow",
+  "Grass": "Clear",
+  "Ground": "Clear",
+  "Fire": "Clear",
+  "Dragon": "Windy",
+  "Psychic": "Windy",
+  "Flying": "Windy"
+}
