@@ -21,7 +21,10 @@ function getinitialState() {
       suggestions: [],
       text: "",
       selectedStats: [],
-      statsArray: []
+      statsArray: [],
+      type1: "",
+      type2: "",
+      counters: []
     },
     options: {
       id: "options",
@@ -87,10 +90,13 @@ class App extends Component {
       if (split[0] === x) {
         state.search.selectedStats = split.slice(0, 4);
         state.search.selected_number = split[4];
+        state.search.type1 = split[5];
+        state.search.type2 = split[6];
       }
     }
     this.setState(() => ({ state }));
     this.generateStatsArray();
+    this.getCounters();
   };
 
   renderSuggestions = () => {
@@ -321,6 +327,90 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
+  getCounters = () => {
+    const typings = [this.state.search.type1];
+    if (this.state.search.type2 !== "None") {
+      typings.push(this.state.search.type2);
+    }
+    const typeCounters = {
+      Normal: ["Fighting"],
+      Fire: ["Water", "Rock", "Ground"],
+      Water: ["Electric", "Grass"],
+      Electric: ["Ground"],
+      Grass: ["Fire", "Ice", "Poison", "Flying", "Bug"],
+      Ice: ["Fire", "Rock", "Steel", "Fighting"],
+      Fighting: ["Flying", "Psychic", "Fairy"],
+      Poison: ["Ground", "Psychic"],
+      Ground: ["Water", "Grass", "Ice"],
+      Flying: ["Electric", "Rock", "Ice"],
+      Psychic: ["Bug", "Ghost", "Dark"],
+      Bug: ["Fire", "Flying", "Rock"],
+      Rock: ["Water", "Steel", "Grass", "Fighting", "Ground"],
+      Ghost: ["Ghost", "Dark"],
+      Dragon: ["Dragon", "Ice", "Fairy"],
+      Dark: ["Fighting", "Bug", "Fairy"],
+      Steel: ["Fire", "Fighting", "Ground"],
+      Fairy: ["Poison", "Steel"]
+    };
+
+    const typeResistances = {
+      Normal: ["Ghost"],
+      Fire: ["Bug", "Steel", "Fire", "Grass", "Ice", "Fairy"],
+      Water: ["Steel", "Fire", "Water", "Ice"],
+      Electric: ["Flying", "Steel", "Electric"],
+      Grass: ["Ground", "Water", "Grass", "Electric"],
+      Ice: ["Ice"],
+      Fighting: ["Rock", "Bug", "Dark"],
+      Poison: ["Fighting", "Poison", "Grass", "Fairy", "Bug"],
+      Ground: ["Poison", "Rock", "Electric"],
+      Flying: ["Bug", "Fighting", "Grass", "Ground"],
+      Psychic: ["Fighting", "Psychic"],
+      Bug: ["Fighting", "Grass", "Ground"],
+      Rock: ["Fire", "Flying", "Normal", "Poison"],
+      Ghost: ["Bug", "Poison", "Normal", "Fighting"],
+      Dragon: ["Electric", "Fire", "Water", "Grass"],
+      Dark: ["Dark", "Ghost", "Psychic"],
+      Steel: [
+        "Bug",
+        "Dragon",
+        "Fairy",
+        "Flying",
+        "Grass",
+        "Ice",
+        "Normal",
+        "Psychic",
+        "Rock",
+        "Steel",
+        "Poison"
+      ],
+      Fairy: ["Bug", "Dark", "Fighting", "Dragon"]
+    };
+
+    let counters = [];
+    let resistances = [];
+
+    function removeDuplicates(item, index, inputArray) {
+      return inputArray.indexOf(item) === index;
+    } /*Remove duplicates*/
+
+    for (var i in typings) {
+      counters = counters.concat(typeCounters[typings[i]]);
+      counters = counters.filter(removeDuplicates);
+      resistances = resistances.concat(typeResistances[typings[i]]);
+      resistances = resistances.filter(removeDuplicates);
+    }
+    for (var j in resistances) {
+      for (var k = counters.length - 1; k >= 0; k--) {
+        if (counters[k] === resistances[j]) {
+          counters.splice(k, 1);
+        }
+      }
+    }
+    const state = { ...this.state };
+    state.search.counters = counters;
+    this.setState(() => ({ state }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -354,6 +444,9 @@ class App extends Component {
             selected={this.state.search.selected}
             selected_number={this.state.search.selected_number}
             onClickReset={this.reset}
+            type1={this.state.search.type1}
+            type2={this.state.search.type2}
+            counters={this.state.search.counters}
           />
           <PageFooter version={this.state.version_number} />
         </div>
