@@ -332,12 +332,22 @@ footer {
   margin: auto;
   width: 20%;
   height: 20%;
-  font-size: 2.5vw;
+}
+
+#BlockLeft {
+  font-size: 120%;
+  line-height: 1.5em;
+  font-size: 1.5vw;
+}
+
+#BlockRight {
+  width: 20%;
+  font-size: 80%;
 }
 
 .TypeIcon {
-  width: 15%;
-  height: 15%;
+  width: 20%;
+  height: 20%;
 }
 
 .Header .Instructions {
@@ -436,6 +446,19 @@ footer {
 
   h1 {
     font-size: 4vw;
+  }
+
+  #BlockLeft {
+    font-size: 2.5vw;
+  }
+
+  #BlockRight {
+    font-size: 1.75vw;
+  }
+
+  .TypeIcon {
+    width: 25%;
+    height: 25%;
   }
 
   .buttonSort {
