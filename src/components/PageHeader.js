@@ -26,9 +26,9 @@ class PageHeader extends Component {
             >
               {close => (
                 <div className="modal">
-                  <a className="close" onClick={close}>
+                  <span className="close" onClick={close}>
                     &times;
-                  </a>
+                  </span>
                   <div className="header">
                     <h1>
                       Pokémon GO IV Table Generator Ver {this.props.version}
