@@ -9,9 +9,9 @@ class AutoCompleteSearch extends Component {
           onChange={this.props.onTextChanged}
           type="text"
         />
-        <button className="ClearSearch" onClick={this.props.clearSearch}>
+        <span className="ClearSearch" onClick={this.props.clearSearch}>
           &times;
-        </button>
+        </span>
       </div>
     );
   }
