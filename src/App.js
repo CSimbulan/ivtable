@@ -34,7 +34,7 @@ function getinitialState() {
       cpfilter: false,
       filtervalue: ""
     },
-    version_number: "1.4.1"
+    version_number: "1.4.2"
   };
 }
 
