@@ -315,6 +315,12 @@ class App extends Component {
     this.setState(getinitialState());
   };
 
+  clearSearch = () => {
+    const state = { ...this.state };
+    state.search.text = "";
+    this.setState(() => ({ state }));
+  };
+
   render() {
     return (
       <div className="App">
@@ -326,6 +332,7 @@ class App extends Component {
               search={this.state.search}
               onTextChanged={this.onTextChanged}
               renderSuggestions={this.renderSuggestions}
+              clearSearch={this.clearSearch}
             />
             {this.renderSuggestions()}
           </div>
