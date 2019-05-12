@@ -22,9 +22,9 @@ function getinitialState() {
       text: "",
       selectedStats: [],
       statsArray: [],
-      type1: "",
-      type2: "",
-      counters: []
+      typing: [],
+      counters: [],
+      resistances: []
     },
     options: {
       id: "options",
@@ -88,10 +88,14 @@ class App extends Component {
       var split = data[i].split(",");
       var x = String(state.search.selected);
       if (split[0] === x) {
-        state.search.selectedStats = split.slice(0, 4);
+        state.search.selectedStats = split.slice(1, 4);
         state.search.selected_number = split[4];
-        state.search.type1 = split[5];
-        state.search.type2 = split[6];
+        var types = [];
+        types.push(split[5]);
+        if (split[6] !== "None") {
+          types.push(split[6]);
+        }
+        state.search.typing = types;
       }
     }
     this.setState(() => ({ state }));
@@ -188,9 +192,9 @@ class App extends Component {
   };
 
   generateStatsArray = () => {
-    var atk = parseInt(this.state.search.selectedStats[1]);
-    var def = parseInt(this.state.search.selectedStats[2]);
-    var sta = parseInt(this.state.search.selectedStats[3]);
+    var atk = parseInt(this.state.search.selectedStats[0]);
+    var def = parseInt(this.state.search.selectedStats[1]);
+    var sta = parseInt(this.state.search.selectedStats[2]);
     var statsArray = [];
     for (var at = 15; at > 9; at--) {
       for (var de = 15; de > 9; de--) {
@@ -328,10 +332,7 @@ class App extends Component {
   };
 
   getCounters = () => {
-    const typings = [this.state.search.type1];
-    if (this.state.search.type2 !== "None") {
-      typings.push(this.state.search.type2);
-    }
+    const typings = this.state.search.typing;
     const typeCounters = {
       Normal: ["Fighting"],
       Fire: ["Water", "Rock", "Ground"],
@@ -408,6 +409,7 @@ class App extends Component {
     }
     const state = { ...this.state };
     state.search.counters = counters;
+    state.search.resistances = resistances;
     this.setState(() => ({ state }));
   };
 
@@ -443,10 +445,11 @@ class App extends Component {
             stats={this.state.search.statsArray}
             selected={this.state.search.selected}
             selected_number={this.state.search.selected_number}
+            selected_stats={this.state.search.selectedStats}
             onClickReset={this.reset}
-            type1={this.state.search.type1}
-            type2={this.state.search.type2}
+            typing={this.state.search.typing}
             counters={this.state.search.counters}
+            resistances={this.state.search.resistances}
           />
           <PageFooter version={this.state.version_number} />
         </div>

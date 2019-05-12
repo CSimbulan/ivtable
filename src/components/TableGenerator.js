@@ -61,7 +61,7 @@ class TableGenerator extends Component {
     return filename;
   };
 
-  getImageUrl = shiny => {
+  getPkmnImagePath = shiny => {
     if (this.props.selected === "") {
       return "";
     }
@@ -79,22 +79,16 @@ class TableGenerator extends Component {
       dexNumber +
       ".png"
     );
+  };
 
-    /*Add special case for castform forms since they aren't in the official assets.*/
-    /*
-    if (this.props.selected_number === "351_f2") {
-      return "https://cdn.bulbagarden.net/upload/8/89/351Castform-Rainy.png";
-    } else if (this.props.selected_number === "351_f3") {
-      return "https://cdn.bulbagarden.net/upload/b/b6/351Castform-Sunny.png";
-    } else if (this.props.selected_number === "351_f4") {
-      return "https://cdn.bulbagarden.net/upload/f/f9/351Castform-Snowy.png";
+  getTypeImagePath = type => {
+    if (this.props.selected === "") {
+      return "";
     }
 
     return (
-      "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" +
-      this.props.selected_number +
-      ".png"
-    );*/
+      process.env.PUBLIC_URL + "/type_icons/Badge_Type_" + type + "_01.png"
+    );
   };
 
   getHeaders = () => {
@@ -150,8 +144,68 @@ class TableGenerator extends Component {
         <hr />
         <h1>{this.getName()}</h1>
         <div className={this.getImageClass()}>
-          <img src={this.getImageUrl(false)} alt="" />
-          <img src={this.getImageUrl(true)} alt="" />
+          <div className="Block">
+            <strong>
+              <i>
+                <u>Base Stats</u>
+              </i>
+            </strong>
+            <br />
+            <i>Attack: {this.props.selected_stats[0]}</i>
+            <br />
+            <i>Defense: {this.props.selected_stats[1]}</i>
+            <br />
+            <i>Stamina: {this.props.selected_stats[2]}</i>
+          </div>
+          <div className="Block">
+            <img src={this.getPkmnImagePath(false)} alt="" />
+          </div>
+          <div className="Block">
+            <img src={this.getPkmnImagePath(true)} alt="" />
+          </div>
+          <div className="Block">
+            <strong>
+              <i>
+                <u>Typing:</u>
+              </i>
+            </strong>
+            <br />
+            {this.props.typing.map(type => (
+              <img
+                className="TypeIcon"
+                src={this.getTypeImagePath(type)}
+                alt={type}
+              />
+            ))}
+            <br />
+            <strong>
+              <i>
+                <u>Counters:</u>
+              </i>
+            </strong>
+            <br />
+            {this.props.counters.map(type => (
+              <img
+                className="TypeIcon"
+                src={this.getTypeImagePath(type)}
+                alt={type}
+              />
+            ))}
+            <br />
+            <strong>
+              <i>
+                <u>Resistances:</u>
+              </i>
+            </strong>
+            <br />
+            {this.props.resistances.map(type => (
+              <img
+                className="TypeIcon"
+                src={this.getTypeImagePath(type)}
+                alt={type}
+              />
+            ))}
+          </div>
         </div>
         <div className="Table">{this.drawTable()}</div>
         <br />

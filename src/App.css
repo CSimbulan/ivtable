@@ -322,11 +322,22 @@ footer {
   display: none;
 }
 
-.tableImage img {
-  width: auto;
-  height: auto;
-  max-width: 20%;
-  max-height: 20%;
+.tableImage {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.tableImage .Block {
+  margin: auto;
+  width: 20%;
+  height: 20%;
+  font-size: 2.5vw;
+}
+
+.TypeIcon {
+  width: 15%;
+  height: 15%;
 }
 
 .Header .Instructions {
