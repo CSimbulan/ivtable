@@ -13,3 +13,5 @@
 - May 11, 2019 (1.3.1): Fixed user manual scaling for mobile devices.
 
 - May 12, 2019 (1.4.0): Added ability to search with dex number. Added a button to clear the search bar.
+
+- May 12, 2019 (1.4.1): Changed css for search clear button.
