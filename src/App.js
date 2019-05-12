@@ -11,9 +11,7 @@ import cpmultipliers from "./components/cpmultipliers";
 function getinitialState() {
   return {
     data: {
-      names: pokemondata.map(
-        x => x.split(",")[0]
-      ) /*Get first column from the data.*/,
+      names: getNames(),
       cpm: cpmultipliers,
       stats: pokemondata
     },
@@ -36,6 +34,20 @@ function getinitialState() {
   };
 }
 
+function getNames() {
+  const names = pokemondata.map(
+    x => x.split(",")[0]
+  ); /*Get first column from the data.*/
+  const namesWithNumbers = pokemondata.map(
+    x => x.split(",")[4].slice(0, 3) + " " + x.split(",")[0]
+  );
+  const namesWithNumbersNoZero = pokemondata.map(
+    x => parseInt(x.split(",")[4].slice(0, 3)) + " " + x.split(",")[0]
+  );
+  const temp = namesWithNumbers.concat(namesWithNumbersNoZero.slice(0, 115));
+  return names.concat(temp);
+}
+
 class App extends Component {
   state = getinitialState();
 
@@ -52,11 +64,22 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
+  pad = (num, size) => {
+    var s = num + "";
+    while (s.length < size) s = "0" + s;
+    return s;
+  };
+
   suggestionSelected = value => {
     const state = { ...this.state };
     state.search.text = value;
     state.search.suggestions = [];
-    state.search.selected = value;
+    const test = value.split(" ");
+    if (test.length > 1) {
+      if (isNaN(test[0])) {
+        state.search.selected = value;
+      } else state.search.selected = test.slice(1).join(" ");
+    } else state.search.selected = value;
     const data = this.state.data.stats;
     for (var i = 0; i < data.length; i++) {
       var split = data[i].split(",");
@@ -75,9 +98,10 @@ class App extends Component {
     if (state.search.suggestions.length === 0) {
       return null;
     }
+    /*
     if (state.search.suggestions.length > 5) {
       state.search.suggestions = state.search.suggestions.slice(0, 5);
-    }
+    }*/
     return (
       <ul>
         {state.search.suggestions.map(item => (

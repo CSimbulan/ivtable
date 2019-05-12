@@ -75,6 +75,8 @@ img {
   background-color: white;
   left: 50%;
   transform: translate(-50.0005%, 0);
+  max-height: 180px;
+  overflow: auto;
 }
 
 .AutoCompleteSearch ul::before {

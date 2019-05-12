@@ -11,13 +11,13 @@ class PageHeader extends Component {
         <div className="Header">
           <div className="Instructions">
             <p>
-              <strong>How it works:</strong> Start typing a Pokémon in the text
-              box below. Select the Pokémon you want to generate a table for
-              from the drop down box. Use the sorting and toggle buttons to
-              customize the table. These tables are used as reference sheets for
-              quickly checking a Pokémon's IVs based on their CP value from a
-              normal raid (Level 20), weather boosted raid (Level 25), and
-              research task (Level 15).
+              <strong>How it works:</strong> Start typing a Pokémon (species
+              name or number) in the text box below. Select the Pokémon you want
+              to generate a table for from the drop down box. Use the sorting
+              and toggle buttons to customize the table. These tables are used
+              as reference sheets for quickly checking a Pokémon's IVs based on
+              their CP value from a normal raid (Level 20), weather boosted raid
+              (Level 25), and research task (Level 15).
             </p>
             Click on this button for a more detailed user manual:{"     "}
             <Popup
