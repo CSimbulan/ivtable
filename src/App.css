@@ -335,14 +335,23 @@ footer {
 }
 
 #BlockLeft {
-  font-size: 120%;
   line-height: 1.5em;
   font-size: 1.5vw;
+  font-family: proxima-soft, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.BlockLeftHeader {
+  font-size: 2vw;
 }
 
 #BlockRight {
   width: 20%;
   font-size: 80%;
+  font-family: proxima-soft, sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .TypeIcon {
@@ -449,11 +458,15 @@ footer {
   }
 
   #BlockLeft {
-    font-size: 2.75vw;
+    font-size: 2vw;
+  }
+
+  .BlockLeftHeader {
+    font-size: 2.3vw;
   }
 
   #BlockRight {
-    font-size: 1.75vw;
+    font-size: 1.5vw;
   }
 
   .TypeIcon {

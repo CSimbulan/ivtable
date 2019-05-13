@@ -163,17 +163,13 @@ class TableGenerator extends Component {
         <h1>{this.getName()}</h1>
         <div className={this.getImageClass()}>
           <div className="Block" id="BlockLeft">
-            <strong>
-              <i>
-                <u>Base Stats</u>
-              </i>
-            </strong>
+            <span className="BlockLeftHeader">Base Stats</span>
+            <hr />
+            Attack: {this.props.selected_stats[0]}
             <br />
-            <i>Attack: {this.props.selected_stats[0]}</i>
+            Defense: {this.props.selected_stats[1]}
             <br />
-            <i>Defense: {this.props.selected_stats[1]}</i>
-            <br />
-            <i>Stamina: {this.props.selected_stats[2]}</i>
+            Stamina: {this.props.selected_stats[2]}
           </div>
           <div className="Block">
             <img src={this.getPkmnImagePath(false)} alt="" />
