@@ -314,9 +314,11 @@ class App extends Component {
       const filtervalue = parseInt(this.state.options.filtervalue);
       for (i = 0; i < stats_temp.length; i++) {
         if (
-          stats_temp[i][0] === filtervalue ||
+          (stats_temp[i][0] === filtervalue &&
+            this.state.options.toggle.lvl15) ||
           stats_temp[i][2] === filtervalue ||
-          stats_temp[i][4] === filtervalue
+          stats_temp[i][4] === filtervalue ||
+          stats_temp[i][10] === filtervalue
         ) {
           temp2.push(stats_temp[i]);
         }
