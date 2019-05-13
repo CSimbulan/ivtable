@@ -48,13 +48,18 @@ class PageHeader extends Component {
                     <ul>
                       <li>
                         Sort by CP at level 20. in descending order. If two CPs
-                        are equal then it will next sort by CP at level 40,
-                        followed by IV percentage.
+                        are equal then it will next sort by CP at the highest
+                        level shown, followed by IV percentage.
                       </li>
                       <li>
                         Sort by IV percentage in descending order. If two IVs
                         are equal then it will next sort by CP at level 20,
-                        follow by CP at level 40.
+                        follow by CP at the highest level shown.
+                      </li>
+                      <li>
+                        Sort by ATK IV in descending order. If two ATK IVs are
+                        equal then it will next sort by IV percentage, followed
+                        by CP at the highest level shown.
                       </li>
                     </ul>
                     <h2>Toggle Settings</h2>
@@ -85,6 +90,13 @@ class PageHeader extends Component {
                       <li>
                         Show Only CP: the table will only show IV combinations
                         that produce a CP matched with the value entered here.
+                      </li>
+                    </ul>
+                    <h2>Highest Level</h2>
+                    <ul>
+                      <li>
+                        Select which level the last two columns will show CP and
+                        HP for.
                       </li>
                     </ul>
                     <h2>Export As CSV File</h2>

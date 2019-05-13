@@ -1,4 +1,4 @@
-## Pokémon GO IV Table Generator Ver 1.4.2
+## Pokémon GO IV Table Generator Ver 1.5.0
 
 This app lets you create an IV table for any Pokémon. Try it out here: https://csimbulan.github.io/ivtable
 
@@ -8,8 +8,9 @@ A table will automatically be generated. You can choose the following settings:
 
 ### Sort Settings
 
-- Sort by CP at level 20. in descending order. If two CPs are equal then it will next sort by CP at level 40, followed by IV percentage.
-- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at level 20, follow by CP at level 20.
+- Sort by CP at level 20. in descending order. If two CPs are equal then it will next sort by CP at highest level shown, followed by IV percentage.
+- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at level 20, follow by CP at the highest level shown.
+- Sort by ATK IV in descending order. If two ATK IVs are equal then it will next sort by IV percentage, followed by CP at the highest level shown.
 
 ### Toggle Settings
 
@@ -21,6 +22,10 @@ A table will automatically be generated. You can choose the following settings:
 ### CP Filter
 
 - Show Only CP: the table will only show IV combinations that produce a CP matched with the value entered here.
+
+### Highest Level
+
+- Select which level the last two columns will show CP and HP for.
 
 ### Export As CSV File
 
