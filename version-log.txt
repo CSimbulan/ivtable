@@ -17,3 +17,5 @@
 - May 12, 2019 (1.4.1): Changed css for search clear button.
 
 - May 12, 2019 (1.4.2): Added base stats, typing, counters and weather boost above the table.
+
+- May 12, 2019 (1.5.0): Added ability to sort by atk iv, and added option to change the highest level shown on the table.
