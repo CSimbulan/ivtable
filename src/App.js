@@ -35,9 +35,10 @@ function getinitialState() {
       sort: "cp",
       toggle: { nundo: true, lvl15: false, under90: false, color: true },
       cpfilter: false,
-      filtervalue: ""
+      filtervalue: "",
+      highestLevel: 40
     },
-    version_number: "1.4.2"
+    version_number: "1.5.0"
   };
 }
 
@@ -137,6 +138,15 @@ class App extends Component {
     }
   };
 
+  changeHighestLevel = value => {
+    const state = { ...this.state };
+    state.options.highestLevel = value;
+    this.setState(() => ({ state }));
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
   toggleNundo = () => {
     const state = { ...this.state };
     state.options.toggle.nundo = !state.options.toggle.nundo;
@@ -208,11 +218,18 @@ class App extends Component {
           var cp15 = this.calculateCP(atk + at, def + de, sta + st, 15.0);
           var cp20 = this.calculateCP(atk + at, def + de, sta + st, 20.0);
           var cp25 = this.calculateCP(atk + at, def + de, sta + st, 25.0);
-          var cp40 = this.calculateCP(atk + at, def + de, sta + st, 40.0);
+          var cpHigh = this.calculateCP(
+            atk + at,
+            def + de,
+            sta + st,
+            this.state.options.highestLevel
+          );
           var hp15 = Math.floor((sta + st) * this.getCPM(15.0));
           var hp20 = Math.floor((sta + st) * this.getCPM(20.0));
           var hp25 = Math.floor((sta + st) * this.getCPM(25.0));
-          var hp40 = Math.floor((sta + st) * this.getCPM(40.0));
+          var hpHigh = Math.floor(
+            (sta + st) * this.getCPM(this.state.options.highestLevel)
+          );
           var newArray = [
             cp15,
             hp15,
@@ -224,8 +241,8 @@ class App extends Component {
             at,
             de,
             st,
-            cp40,
-            hp40
+            cpHigh,
+            hpHigh
           ]; /*toFixed rounds to specified amount of decimal places.*/
           statsArray.push(newArray);
         }
@@ -241,7 +258,8 @@ class App extends Component {
   sortFunction = (a, b) => {
     const sortDict = {
       cp: 2,
-      iv: 6
+      iv: 6,
+      atk: 7
     };
     var index = sortDict[this.state.options.sort];
     var index2 = 0; /*Secondary sort index.*/
@@ -249,9 +267,12 @@ class App extends Component {
     if (this.state.options.sort === "iv") {
       index2 = 2; /*If primary sort is by IV, secondary sort is by CP@20.*/
       index3 = 10; /*If primary sort is by IV, tertiary sort is by CP@40.*/
-    } else {
+    } else if (this.state.options.sort === "cp") {
       index2 = 10; /*If primary sort is by CP@20, secondary sort is by CP@40.*/
       index3 = 6; /*If primary sort is by IV, teriary sort is by IV.*/
+    } else {
+      index2 = 6; /*If primary sort is by ATK, secondary sort is by IV.*/
+      index3 = 10; /*If primary sort is by IV, teriary sort is by IV.*/
     }
     if (parseFloat(a[index]) === parseFloat(b[index])) {
       if (parseFloat(a[index2]) === parseFloat(b[index2])) {
@@ -362,7 +383,6 @@ class App extends Component {
     state.search.counters = counters;
     state.search.resistances = resistances;
     this.setState(() => ({ state }));
-    console.log(counters);
   };
 
   getWeather = () => {
@@ -403,6 +423,7 @@ class App extends Component {
             toggleCPFilter={this.toggleCPFilter}
             filterCP={this.state.options.filtervalue}
             onFilterChanged={this.onFilterChanged}
+            changeHighestLevel={value => this.changeHighestLevel(value)}
           />
           <TableGenerator
             options={this.state.options}
