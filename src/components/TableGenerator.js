@@ -119,10 +119,11 @@ class TableGenerator extends Component {
       "IV%",
       "ATK",
       "DEF",
-      "STA",
-      "CP@40",
-      "HP@40"
+      "STA"
     ];
+
+    headers.push("CP@" + this.props.options.highestLevel);
+    headers.push("HP@" + this.props.options.highestLevel);
 
     if (!this.props.options.toggle.lvl15) {
       headers.shift();
