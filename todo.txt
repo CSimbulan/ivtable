@@ -1,4 +1,4 @@
--add more sorting/toggle options (sort by ATK value)
+-****ADD COMMENTS****
 -clean up code (repeated code)
 -move renderSuggestions call out of app.render
 -add other language options
