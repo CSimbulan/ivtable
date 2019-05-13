@@ -4,5 +4,5 @@
 -add other language options
 -combine all toggle functions into one
 -change filtering so a new stats array doesn't have to be generated every time
--fix bug in firefox where rows aren't fully colored (e.g. select lapras -> type 1131 in show only cp then toggle on and off lvl 15)\
 -convert table to image and add save button
+-add double effectiveness to counters
