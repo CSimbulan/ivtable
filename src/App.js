@@ -72,12 +72,6 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
-  pad = (num, size) => {
-    var s = num + "";
-    while (s.length < size) s = "0" + s;
-    return s;
-  };
-
   suggestionSelected = value => {
     const state = { ...this.state };
     state.search.text = value;
