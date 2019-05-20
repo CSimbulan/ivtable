@@ -451,7 +451,7 @@ Cherrim-Sunshine,170,153,172,421_12,Grass,None
 Shellos-West,103,105,183,422_11,Water,None
 Shellos-East,103,105,183,422_12,Water,None
 Gastrodon-West,169,143,244,423_11,Water,Ground
-Gastrodon-East,169,143,244,423__12,Water,Ground
+Gastrodon-East,169,143,244,423_12,Water,Ground
 Ambipom,205,143,181,424,Normal,None
 Drifloon,117,80,207,425,Ghost,Flying
 Drifblim,180,102,312,426,Ghost,Flying
