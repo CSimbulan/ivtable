@@ -38,7 +38,7 @@ function getinitialState() {
       filtervalue: "",
       highestLevel: 40
     },
-    version_number: "1.5.1"
+    version_number: "1.5.2"
   };
 }
 
