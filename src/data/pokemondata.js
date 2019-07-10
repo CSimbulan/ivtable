@@ -166,6 +166,7 @@ Dratini,119,91,121,147,Dragon,None
 Dragonair,163,135,156,148,Dragon,None
 Dragonite,263,198,209,149,Dragon,Flying
 Mewtwo,300,182,214,150,Psychic,None
+Mewtwo-Armored,182,278,214,150_01,Psychic,None
 Mew,210,210,225,151,Psychic,None
 Chikorita,92,122,128,152,Grass,None
 Bayleef,122,155,155,153,Grass,None

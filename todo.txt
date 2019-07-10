@@ -5,4 +5,9 @@
 -combine all toggle functions into one
 -change filtering so a new stats array doesn't have to be generated every time
 -convert table to image and add save button
--add double effectiveness to counters
+-add double effectiveness to counters (
+    get super effective list
+    sort so that duplicates are beside each other
+    make temp empty list
+    loop through SE list, if SE[i]!=SE[i+1] add to temp list
+    if SE[i]===SE[i+1] then add SEx2 instead and increase i by 2 instead)
