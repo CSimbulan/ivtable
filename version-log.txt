@@ -23,3 +23,5 @@
 - May 12, 2019 (1.5.1): Fixed bug where cp filter wasn't working at highest level shown. Also cp filter won't show if matching cp at level 15 and level 15 is toggled off.
 
 - July 10, 2019 (1.5.2): Added armored Mewtwo.
+
+- October 9, 2019 (1.5.3): Added support for Gen 5. If official sprites are not released then sprites from X and Y are used.
