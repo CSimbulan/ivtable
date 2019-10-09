@@ -73,7 +73,8 @@ class TableGenerator extends Component {
     let dexNumber = this.props.selected_number;
     if (
       released_gen5.includes(dexNumber.slice(0, 3)) ||
-      parseInt(dexNumber.slice(0, 3)) < 494
+      parseInt(dexNumber.slice(0, 3)) < 494 ||
+      parseInt(dexNumber.slice(0, 3)) > 800
     ) {
       if (dexNumber.length === 3) {
         dexNumber += "_00";
