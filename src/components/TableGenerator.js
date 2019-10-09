@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CSVLink } from "react-csv";
+import released_gen5 from "../data/released_gen5";
 
 class TableGenerator extends Component {
   getRowClass = row => {
@@ -69,20 +70,37 @@ class TableGenerator extends Component {
     if (this.props.selected === "") {
       return "";
     }
-
     let dexNumber = this.props.selected_number;
-    if (dexNumber.length === 3) {
-      dexNumber += "_00";
+    if (
+      released_gen5.includes(dexNumber.slice(0, 3)) ||
+      parseInt(dexNumber.slice(0, 3)) < 494
+    ) {
+      if (dexNumber.length === 3) {
+        dexNumber += "_00";
+      }
+      if (shiny) {
+        dexNumber += "_shiny";
+      }
+      let returnString =
+        process.env.PUBLIC_URL +
+        "/pokemon_icons/pokemon_icon_" +
+        dexNumber +
+        ".png";
+      return returnString;
+    } else {
+      var path = !shiny ? "normal" : "shiny";
+      return (
+        "https://img.pokemondb.net/sprites/x-y/" +
+        path +
+        "/" +
+        this.props.selected.toLowerCase() +
+        ".png"
+      );
     }
-    if (shiny) {
-      dexNumber += "_shiny";
-    }
-    return (
-      process.env.PUBLIC_URL +
-      "/pokemon_icons/pokemon_icon_" +
-      dexNumber +
-      ".png"
-    );
+  };
+
+  getPkmnBackupImage = shiny => {
+    return process.env.PUBLIC_URL + "/pokemon_icons/pokemon_icon_000.png";
   };
 
   getTypeImagePath = type => {
@@ -172,10 +190,24 @@ class TableGenerator extends Component {
             Stamina: {this.props.selected_stats[2]}
           </div>
           <div className="Block">
-            <img src={this.getPkmnImagePath(false)} alt="" />
+            <img
+              src={this.getPkmnImagePath(false)}
+              alt=""
+              onError={e => {
+                e.target.onerror = null;
+                e.target.src = this.getPkmnBackupImage(false);
+              }}
+            />
           </div>
           <div className="Block">
-            <img src={this.getPkmnImagePath(true)} alt="" />
+            <img
+              src={this.getPkmnImagePath(true)}
+              alt=""
+              onError={e => {
+                e.target.onerror = null;
+                e.target.src = this.getPkmnBackupImage(true);
+              }}
+            />
           </div>
           <div className="Block" id="BlockRight">
             <strong>
