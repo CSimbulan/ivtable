@@ -25,3 +25,5 @@
 - July 10, 2019 (1.5.2): Added armored Mewtwo.
 
 - October 9, 2019 (1.5.3): Added support for Gen 5. If official sprites are not released then sprites from X and Y are used.
+
+- October 10, 2019 (1.5.4): Now shows if type counter is double super effective.
