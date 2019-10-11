@@ -588,8 +588,8 @@ Cottonee,71,111,120,546,Grass,Fairy
 Whimsicott,164,176,155,547,Grass,Fairy
 Petilil,119,91,128,548,Grass,None
 Lilligant,214,155,172,549,Grass,None
-Basculin,189,129,172,550,Water,None
-Basculin,189,129,172,550B,Water,None
+Basculin-Red,189,129,172,550,Water,None
+Basculin-Blue,189,129,172,550_12,Water,None
 Sandile,132,69,137,551,Ground,Dark
 Krokorok,155,90,155,552,Ground,Dark
 Krookodile,229,158,216,553,Ground,Dark
