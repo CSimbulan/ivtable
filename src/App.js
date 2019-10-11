@@ -38,7 +38,7 @@ function getinitialState() {
       filtervalue: "",
       highestLevel: 40
     },
-    version_number: "1.5.3"
+    version_number: "1.5.4"
   };
 }
 
@@ -357,14 +357,28 @@ class App extends Component {
     return inputArray.indexOf(item) === index;
   }; /*Remove duplicates*/
 
+  mergeCounters = inputArray => {
+    inputArray.sort();
+    let tempArray = [];
+    for (var i = 0; i < inputArray.length; i++) {
+      if (inputArray[i] !== inputArray[i + 1]) {
+        tempArray.push(inputArray[i]);
+      } else {
+        tempArray.push(inputArray[i] + "x2");
+        i++;
+      }
+    }
+    return tempArray;
+  };
+
   getCounters = () => {
-    const typings = this.state.search.typing;
+    const typings = [...this.state.search.typing];
     let counters = [];
     let resistances = [];
 
     for (var i in typings) {
       counters = counters.concat(typeCounters[typings[i]]);
-      counters = counters.filter(this.removeDuplicates);
+      counters = this.mergeCounters(counters);
       resistances = resistances.concat(typeResistances[typings[i]]);
       resistances = resistances.filter(this.removeDuplicates);
     }
@@ -375,6 +389,7 @@ class App extends Component {
         }
       }
     }
+
     const state = { ...this.state };
     state.search.counters = counters;
     state.search.resistances = resistances;
