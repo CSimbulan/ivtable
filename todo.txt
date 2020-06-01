@@ -5,3 +5,5 @@
 -combine all toggle functions into one
 -change filtering so a new stats array doesn't have to be generated every time
 -convert table to image and add save button
+-add forms for deerling, sawsbuck and more gen 5
+-remove the cp15 calculations from the table generator (remove first two indices)

@@ -8,16 +8,19 @@ A table will automatically be generated. You can choose the following settings:
 
 ### Sort Settings
 
-- Sort by CP at level 20. in descending order. If two CPs are equal then it will next sort by CP at highest level shown, followed by IV percentage.
-- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at level 20, follow by CP at the highest level shown.
+- Sort by CP at the encounter level. in descending order. If two CPs are equal then it will next sort by CP at highest level shown, followed by IV percentage.
+- Sort by IV percentage in descending order. If two IVs are equal then it will next sort by CP at the encounter level, follow by CP at the highest level shown.
 - Sort by ATK IV in descending order. If two ATK IVs are equal then it will next sort by IV percentage, followed by CP at the highest level shown.
 
 ### Toggle Settings
 
 - Nundo: this will show the stats for an IV percentage of 66.7% (10/10/10), which the lowest you can get from a raid / egg hatch. If this setting is toggled ON then it will show even if the Under 90 setting is OFF.
-- Level 15: this will show CP and HP for level 15. This is useful for research task Pokémon which are caught at level 15.
 - Under 90%: this will show all combinations of thats from 66.7% (10/10/10) to 100% (15/15/15). The nundo stats will show even if this setting is OFF.
 - Colored rows: this will toggle ON/OFF the coloring of table rows.
+
+### Encounter Level
+
+- Select what level to show the CP for. The indicated level + 5 will also be shown for weather boosts. Note that certain encounters such as from a research task cannot be weather boosted.
 
 ### CP Filter
 
