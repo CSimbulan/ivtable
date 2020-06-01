@@ -16,15 +16,17 @@ class PageHeader extends Component {
               to generate a table for from the drop down box. Use the sorting
               and toggle buttons to customize the table. These tables are used
               as reference sheets for quickly checking a Pokémon's IVs based on
-              their CP value from a normal raid (Level 20), weather boosted raid
-              (Level 25), and research task (Level 15).
+              their CP value for indicated level. Useful encounters are from a
+              normal raid (Level 20), weather boosted raid (Level 25), research
+              task (Level 15), rocket battle (Level 8), and weather boosted
+              rocket battle (Level 13).
             </p>
             Click on this button for a more detailed user manual:{"     "}
             <Popup
               trigger={<button className="buttonManual">User Manual</button>}
               modal
             >
-              {close => (
+              {(close) => (
                 <div className="modal">
                   <span className="close" onClick={close}>
                     &times;
@@ -47,14 +49,14 @@ class PageHeader extends Component {
                     <h2>Sort Settings</h2>
                     <ul>
                       <li>
-                        Sort by CP at level 20. in descending order. If two CPs
-                        are equal then it will next sort by CP at the highest
-                        level shown, followed by IV percentage.
+                        Sort by CP at the encounter level. in descending order.
+                        If two CPs are equal then it will next sort by CP at the
+                        highest level shown, followed by IV percentage.
                       </li>
                       <li>
                         Sort by IV percentage in descending order. If two IVs
-                        are equal then it will next sort by CP at level 20,
-                        follow by CP at the highest level shown.
+                        are equal then it will next sort by CP at the encounter
+                        level, follow by CP at the highest level shown.
                       </li>
                       <li>
                         Sort by ATK IV in descending order. If two ATK IVs are
@@ -71,11 +73,6 @@ class PageHeader extends Component {
                         will show even if the Under 90 setting is OFF.
                       </li>
                       <li>
-                        Level 15: this will show CP and HP for level 15. This is
-                        useful for research task Pokémon which are caught at
-                        level 15.
-                      </li>
-                      <li>
                         Under 90%: this will show all combinations of thats from
                         66.7% (10/10/10) to 100% (15/15/15). The nundo stats
                         will show even if this setting is OFF.
@@ -83,6 +80,15 @@ class PageHeader extends Component {
                       <li>
                         Colored rows: this will toggle ON/OFF the coloring of
                         table rows.
+                      </li>
+                    </ul>
+                    <h2>Encounter Level</h2>
+                    <ul>
+                      <li>
+                        Select what level to show the CP for. The indicated
+                        level + 5 will also be shown for weather boosts. Note
+                        that certain encounters such as from a research task
+                        cannot be weather boosted.
                       </li>
                     </ul>
                     <h2>CP Filter</h2>

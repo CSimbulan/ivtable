@@ -3,7 +3,7 @@ import { CSVLink } from "react-csv";
 import released_gen5 from "../data/released_gen5";
 
 class TableGenerator extends Component {
-  getRowClass = row => {
+  getRowClass = (row) => {
     if (!this.props.options.toggle.color) {
       return null;
     }
@@ -14,13 +14,13 @@ class TableGenerator extends Component {
       93.3: "ninetyThree",
       91.1: "ninetyOne",
       100.0: "hundo",
-      66.7: "nundo"
+      66.7: "nundo",
     };
     var index = 0;
     if (!this.props.options.toggle.lvl15) {
       index = 4;
     } else {
-      index = 6;
+      index = 2;
     }
 
     if (row[index] === "100.0") {
@@ -40,16 +40,16 @@ class TableGenerator extends Component {
       <table>
         <thead>
           <tr>
-            {headers.map(head => (
-              <th key={head}>{head}</th>
+            {headers.map((head) => (
+              <th key={this.generateRandomKey() + head}>{head}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {stats.map(row => (
+          {stats.map((row) => (
             <tr className={this.getRowClass(row)} key={row.join()}>
-              {row.map(column => (
-                <td key={this.generateRandomKey()}>{column}</td>
+              {row.map((column) => (
+                <td key={this.generateRandomKey() + row + column}>{column}</td>
               ))}
             </tr>
           ))}
@@ -66,16 +66,12 @@ class TableGenerator extends Component {
     return filename;
   };
 
-  getPkmnImagePath = shiny => {
+  getPkmnImagePath = (shiny) => {
     if (this.props.selected === "") {
       return "";
     }
     let dexNumber = this.props.selected_number;
-    if (
-      released_gen5.includes(dexNumber.slice(0, 3)) ||
-      parseInt(dexNumber.slice(0, 3)) < 494 ||
-      parseInt(dexNumber.slice(0, 3)) > 800
-    ) {
+    if (this.props.selected_number) {
       if (dexNumber.length === 3) {
         dexNumber += "_00";
       }
@@ -100,11 +96,11 @@ class TableGenerator extends Component {
     }
   };
 
-  getPkmnBackupImage = shiny => {
+  getPkmnBackupImage = (shiny) => {
     return process.env.PUBLIC_URL + "/pokemon_icons/pokemon_icon_000.png";
   };
 
-  getTypeImagePath = type => {
+  getTypeImagePath = (type) => {
     if (this.props.selected === "") {
       return "";
     }
@@ -114,7 +110,7 @@ class TableGenerator extends Component {
     );
   };
 
-  getWeatherImagePath = weather => {
+  getWeatherImagePath = (weather) => {
     if (this.props.selected === "") {
       return "";
     }
@@ -129,25 +125,17 @@ class TableGenerator extends Component {
 
   getHeaders = () => {
     var headers = [
-      "CP@15",
-      "HP@15",
-      "CP@20",
-      "HP@20",
-      "CP@25",
-      "HP@25",
+      "CP@" + this.props.options.encounterLevel,
+      "HP@" + this.props.options.encounterLevel,
+      "CP@" + (parseInt(this.props.options.encounterLevel) + 5),
+      "HP@" + (parseInt(this.props.options.encounterLevel) + 5),
       "IV%",
       "ATK",
       "DEF",
-      "STA"
+      "STA",
+      "CP@" + this.props.options.highestLevel,
+      "HP@" + this.props.options.highestLevel,
     ];
-
-    headers.push("CP@" + this.props.options.highestLevel);
-    headers.push("HP@" + this.props.options.highestLevel);
-
-    if (!this.props.options.toggle.lvl15) {
-      headers.shift();
-      headers.shift();
-    }
 
     return headers;
   };
@@ -194,7 +182,7 @@ class TableGenerator extends Component {
             <img
               src={this.getPkmnImagePath(false)}
               alt=""
-              onError={e => {
+              onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = this.getPkmnBackupImage(false);
               }}
@@ -204,7 +192,7 @@ class TableGenerator extends Component {
             <img
               src={this.getPkmnImagePath(true)}
               alt=""
-              onError={e => {
+              onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = this.getPkmnBackupImage(true);
               }}
@@ -217,7 +205,7 @@ class TableGenerator extends Component {
               </i>
             </strong>
             <br />
-            {this.props.typing.map(type => (
+            {this.props.typing.map((type) => (
               <img
                 className="TypeIcon"
                 src={this.getTypeImagePath(type)}
@@ -232,7 +220,7 @@ class TableGenerator extends Component {
               </i>
             </strong>
             <br />
-            {this.props.counters.map(type => (
+            {this.props.counters.map((type) => (
               <img
                 className="TypeIcon"
                 src={this.getTypeImagePath(type)}
@@ -248,7 +236,7 @@ class TableGenerator extends Component {
               </i>
             </strong>
             <br />
-            {this.props.weather.map(weather => (
+            {this.props.weather.map((weather) => (
               <img
                 className="TypeIcon"
                 src={this.getWeatherImagePath(weather)}

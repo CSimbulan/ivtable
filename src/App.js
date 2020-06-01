@@ -16,7 +16,7 @@ function getinitialState() {
     data: {
       names: getNames(),
       cpm: cpmultipliers,
-      stats: pokemondata
+      stats: pokemondata,
     },
     search: {
       selected: "",
@@ -28,29 +28,36 @@ function getinitialState() {
       typing: [],
       counters: [],
       resistances: [],
-      weather: []
+      weather: [],
     },
     options: {
       id: "options",
       sort: "cp",
-      toggle: { nundo: true, lvl15: false, under90: false, color: true },
+      toggle: {
+        nundo: true,
+        lvl15: false,
+        under90: false,
+        color: true,
+        boosted: true,
+      },
       cpfilter: false,
       filtervalue: "",
-      highestLevel: 40
+      highestLevel: 40,
+      encounterLevel: 20,
     },
-    version_number: "1.5.4"
+    version_number: "1.5.5",
   };
 }
 
 function getNames() {
   const names = pokemondata.map(
-    x => x.split(",")[0]
+    (x) => x.split(",")[0]
   ); /*Get first column from the data.*/
   const namesWithNumbers = pokemondata.map(
-    x => x.split(",")[4].slice(0, 3) + " " + x.split(",")[0]
+    (x) => x.split(",")[4].slice(0, 3) + " " + x.split(",")[0]
   );
   const namesWithNumbersNoZero = pokemondata.map(
-    x => parseInt(x.split(",")[4].slice(0, 3)) + " " + x.split(",")[0]
+    (x) => parseInt(x.split(",")[4].slice(0, 3)) + " " + x.split(",")[0]
   );
   const temp = namesWithNumbers.concat(namesWithNumbersNoZero.slice(0, 115));
   return names.concat(temp);
@@ -59,12 +66,12 @@ function getNames() {
 class App extends Component {
   state = getinitialState();
 
-  onTextChanged = e => {
+  onTextChanged = (e) => {
     const value = e.target.value;
     let suggestions = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, "i");
-      suggestions = this.state.data.names.sort().filter(v => regex.test(v));
+      suggestions = this.state.data.names.sort().filter((v) => regex.test(v));
     }
     const state = { ...this.state };
     state.search.text = value;
@@ -72,7 +79,7 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
-  suggestionSelected = value => {
+  suggestionSelected = (value) => {
     const state = { ...this.state };
     state.search.text = value;
     state.search.suggestions = [];
@@ -114,7 +121,7 @@ class App extends Component {
     }*/
     return (
       <ul>
-        {state.search.suggestions.map(item => (
+        {state.search.suggestions.map((item) => (
           <li onClick={() => this.suggestionSelected(item)} key={item}>
             {item}
           </li>
@@ -123,7 +130,7 @@ class App extends Component {
     );
   };
 
-  changeSort = value => {
+  changeSort = (value) => {
     const state = { ...this.state };
     state.options.sort = value;
     this.setState(() => ({ state }));
@@ -132,7 +139,7 @@ class App extends Component {
     }
   };
 
-  changeHighestLevel = value => {
+  changeHighestLevel = (value) => {
     const state = { ...this.state };
     state.options.highestLevel = value;
     this.setState(() => ({ state }));
@@ -177,6 +184,15 @@ class App extends Component {
     }
   };
 
+  toggleBoosted = () => {
+    const state = { ...this.state };
+    state.options.toggle.boosted = !state.options.toggle.boosted;
+    this.setState(() => ({ state }));
+    if (this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
   toggleCPFilter = () => {
     const state = { ...this.state };
     state.options.cpfilter = !state.options.cpfilter;
@@ -186,7 +202,7 @@ class App extends Component {
     }
   };
 
-  getCPM = level => {
+  getCPM = (level) => {
     var cpm = 0;
     const cpmArray = this.state.data.cpm;
     cpm = parseFloat(cpmArray[level * 2 - 2].split(",")[1]);
@@ -209,34 +225,48 @@ class App extends Component {
       for (var de = 15; de > 9; de--) {
         for (var st = 15; st > 9; st--) {
           var iv = ((at + de + st) / 45.0) * 100;
-          var cp15 = this.calculateCP(atk + at, def + de, sta + st, 15.0);
-          var cp20 = this.calculateCP(atk + at, def + de, sta + st, 20.0);
-          var cp25 = this.calculateCP(atk + at, def + de, sta + st, 25.0);
+          var cp15 = 1;
+          var cpBase = this.calculateCP(
+            atk + at,
+            def + de,
+            sta + st,
+            this.state.options.encounterLevel
+          );
+          var cpBoost = this.calculateCP(
+            atk + at,
+            def + de,
+            sta + st,
+            this.state.options.encounterLevel + 5
+          );
           var cpHigh = this.calculateCP(
             atk + at,
             def + de,
             sta + st,
             this.state.options.highestLevel
           );
-          var hp15 = Math.floor((sta + st) * this.getCPM(15.0));
-          var hp20 = Math.floor((sta + st) * this.getCPM(20.0));
-          var hp25 = Math.floor((sta + st) * this.getCPM(25.0));
+          var hp15 = 1;
+          var hpBase = Math.floor(
+            (sta + st) * this.getCPM(this.state.options.encounterLevel)
+          );
+          var hpBoost = Math.floor(
+            (sta + st) * this.getCPM(this.state.options.encounterLevel + 5)
+          );
           var hpHigh = Math.floor(
             (sta + st) * this.getCPM(this.state.options.highestLevel)
           );
           var newArray = [
             cp15,
             hp15,
-            cp20,
-            hp20,
-            cp25,
-            hp25,
+            cpBase,
+            hpBase,
+            cpBoost,
+            hpBoost,
             iv.toFixed(1),
             at,
             de,
             st,
             cpHigh,
-            hpHigh
+            hpHigh,
           ]; /*toFixed rounds to specified amount of decimal places.*/
           statsArray.push(newArray);
         }
@@ -253,7 +283,7 @@ class App extends Component {
     const sortDict = {
       cp: 2,
       iv: 6,
-      atk: 7
+      atk: 7,
     };
     var index = sortDict[this.state.options.sort];
     var index2 = 0; /*Secondary sort index.*/
@@ -332,13 +362,24 @@ class App extends Component {
     this.setState(() => ({ state }));
   };
 
-  onFilterChanged = e => {
+  onFilterChanged = (e) => {
     const value = e.target.value;
     const state = { ...this.state };
     state.options.filtervalue = value;
 
     this.setState(() => ({ state }));
     if (this.state.options.cpfilter && this.state.search.selected) {
+      this.generateStatsArray();
+    }
+  };
+
+  onLevelChanged = (e) => {
+    const value = e.target.value;
+    const state = { ...this.state };
+    state.options.encounterLevel = parseInt(value);
+
+    this.setState(() => ({ state }));
+    if (this.state.search.selected) {
       this.generateStatsArray();
     }
   };
@@ -357,7 +398,7 @@ class App extends Component {
     return inputArray.indexOf(item) === index;
   }; /*Remove duplicates*/
 
-  mergeCounters = inputArray => {
+  mergeCounters = (inputArray) => {
     inputArray.sort();
     let tempArray = [];
     for (var i = 0; i < inputArray.length; i++) {
@@ -426,15 +467,17 @@ class App extends Component {
           <br />
           <Options
             options={this.state.options}
-            changeSort={value => this.changeSort(value)}
+            changeSort={(value) => this.changeSort(value)}
             toggleNundo={this.toggleNundo}
             toggleLvl15={this.toggleLvl15}
             toggleUnder90={this.toggleUnder90}
             toggleColor={this.toggleColor}
             toggleCPFilter={this.toggleCPFilter}
+            toggleBoosted={this.toggleBoosted}
             filterCP={this.state.options.filtervalue}
             onFilterChanged={this.onFilterChanged}
-            changeHighestLevel={value => this.changeHighestLevel(value)}
+            onLevelChanged={this.onLevelChanged}
+            changeHighestLevel={(value) => this.changeHighestLevel(value)}
           />
           <TableGenerator
             options={this.state.options}
