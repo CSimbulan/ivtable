@@ -29,3 +29,5 @@
 - October 10, 2019 (1.5.4): Now shows if type counter is double super effective.
 
 - June 1, 2020 (1.5.5): Added option to choose encounter level. Added remaining Gen 5 models.
+
+- June 15, 2020 (1.5.6): Added support for Galar forms.
