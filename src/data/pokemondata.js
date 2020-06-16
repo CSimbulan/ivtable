@@ -60,6 +60,7 @@ Dugtrio,167,134,111,051,Ground,None
 Dugtrio-Alolan,201,142,111,051_61,Ground,Steel
 Meowth,92,78,120,052,Normal,None
 Meowth-Alolan,99,78,120,052_61,Dark,None
+Meowth-Galarian,115,92,137,052_31,Steel,None
 Persian,150,136,163,053,Normal,None
 Persian-Alolan,158,136,163,053_61,Dark,None
 Psyduck,122,95,137,054,Water,None
@@ -94,7 +95,8 @@ Slowpoke,109,98,207,079,Water,Psychic
 Slowbro,177,180,216,080,Water,Psychic
 Magnemite,165,121,93,081,Electric,Steel
 Magneton,223,169,137,082,Electric,Steel
-Farfetchd,124,115,141,083,Normal,Flying
+Farfetch'd,124,115,141,083,Normal,Flying
+Farfetch'd-Galarian,174,114,141,083_31,Fighting,None
 Doduo,158,83,111,084,Normal,Flying
 Dodrio,218,140,155,085,Normal,Flying
 Seel,85,121,163,086,Water,None
@@ -280,7 +282,9 @@ Swampert,208,175,225,260,Water,Ground
 Poochyena,96,61,111,261,Dark,None
 Mightyena,171,132,172,262,Dark,None
 Zigzagoon,58,80,116,263,Normal,None
+Zigzagoon-Galarian,58,80,116,263_31,Dark,Normal
 Linoone,142,128,186,264,Normal,None
+Linoone-Galarian,142,128,186,264_31,Dark,Normal
 Wurmple,75,59,128,265,Bug,None
 Silcoon,60,77,137,266,Bug,None
 Beautifly,189,98,155,267,Bug,Flying
@@ -530,8 +534,6 @@ Darkrai,285,198,172,491,Dark,None
 Shaymin-Land,210,210,225,492_11,Grass,None
 Shaymin-Sky,261,166,225,492_12,Grass,Flying
 Arceus,238,238,237,493,Normal,None
-Meltan,118,99,130,808,Steel,None
-Melmetal,226,190,264,809,Steel,None
 Victini,210,210,225,494,Psychic,Fire
 Snivy,88,107,128,495,Grass,None
 Servine,122,152,155,496,Grass,None
@@ -659,6 +661,7 @@ Cryogonal,190,218,190,615,Ice,None
 Shelmet,72,140,137,616,Bug,None
 Accelgor,220,120,190,617,Bug,None
 Stunfisk,144,171,240,618,Ground,Electric
+Stunfisk-Galarian,144,171,240,618_31,Ground,Steel
 Mienfoo,160,98,128,619,Fighting,None
 Mienshao,258,127,163,620,Fighting,None
 Druddigon,213,170,184,621,Dragon,None
@@ -696,4 +699,9 @@ Keldeo-Ordinary,260,192,209,647,Water,Fighting
 Keldeo-Resolute,260,192,209,647_12,Water,Fighting
 Meloetta-Aria,250,225,225,648,Normal,Psychic
 Meloetta-Pirouette,269,188,225,648_12,Normal,Fighting
-Genesect,252,199,174,649_11,Bug,Steel`.split("\n");
+Genesect,252,199,174,649_11,Bug,Steel
+Meltan,118,99,130,808,Steel,None
+Melmetal,226,190,264,809,Steel,None
+Obstagoon,180,194,212,862_31,Dark,Normal
+Perrserker,195,162.172,863_31,Steel,None
+Sirfetch'd,248,176,158,865_31,Fighting,None`.split("\n");
