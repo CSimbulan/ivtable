@@ -703,5 +703,5 @@ Genesect,252,199,174,649_11,Bug,Steel
 Meltan,118,99,130,808,Steel,None
 Melmetal,226,190,264,809,Steel,None
 Obstagoon,180,194,212,862_31,Dark,Normal
-Perrserker,195,162.172,863_31,Steel,None
+Perrserker,195,162,172,863_31,Steel,None
 Sirfetch'd,248,176,158,865_31,Fighting,None`.split("\n");
