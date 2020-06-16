@@ -45,7 +45,7 @@ function getinitialState() {
       highestLevel: 40,
       encounterLevel: 20,
     },
-    version_number: "1.5.5",
+    version_number: "1.5.6",
   };
 }
 
