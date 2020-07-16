@@ -596,8 +596,11 @@ Sandile,132,69,137,551,Ground,Dark
 Krokorok,155,90,155,552,Ground,Dark
 Krookodile,229,158,216,553,Ground,Dark
 Darumaka,153,86,172,554,Fire,None
+Darumuka-Galar,153,86,172,554_31,Ice,None
 Darmanitan,263,114,233,555_11,Fire,None
 Darmanitan-Zen,243,202,233,555_12,Fire,Psychic
+Darmanitan-Galar,263,114,233,555_31,Ice,None
+Darmanitan-Galar-Zen,323,123,233,555_32,Fire,Ice
 Maractus,201,130,181,556,Grass,None
 Dwebble,118,128,137,557,Bug,Rock
 Crustle,188,200,172,558,Bug,Rock
